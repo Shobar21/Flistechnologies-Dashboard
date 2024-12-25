@@ -1,0 +1,60 @@
+.page-dash {
+  color: #707eae;
+}
+.main-dash {
+  color: #2b3674;
+  font-weight: 700;
+  font-size: 34px;
+  width: 265px;
+}
+
+.dashboard-container {
+  background-color: #f9f9ff;
+}
+
+.col-dash {
+  width: 200px;
+  height: 95px;
+  margin: 0;
+  padding: 0;
+}
+
+.cards {
+  width: 230px;
+  height: 97px;
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Parent container styles */
+.row-dash {
+  margin: 0;
+  gap: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping if needed */
+}
+
+.dash-h5 {
+  color: #a3aed0;
+  font-size: 14px;
+  font-weight: 500;
+}
+.dash-h3 {
+  color: #2b3674;
+  font-size: 24px;
+  font-weight: 700;
+}
+.circle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: #f4f7fe;
+}
+.details {
+  gap: 10px;
+}
