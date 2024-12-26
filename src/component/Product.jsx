@@ -5,6 +5,7 @@ import calendar from '../img/calendar_today.png'
 import time from '../img/Icon.png'
 import month from '../img/Icon (1).png'
 import projects from '../img/Icon (2).png'
+import products from '../img/Vector (7).png'
 import '../css/Product.css'
 
 function Product() {
@@ -95,7 +96,7 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={projects} alt='projects' />
+                <img src={products} alt='products' />
               </div>
               <div className='info-product d-flex'>
                 <h5
