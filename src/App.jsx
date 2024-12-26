@@ -1,18 +1,28 @@
+import React from 'react'
 import './App.css'
 import Dashboard from './component/Dashboard'
-import Sidebar from './component/SideBar'
+import Product from './component/Product'
+import Project from './component/Project'
+import Sidebar from './component/Sidebar'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
 function App() {
   return (
-    <div className='d-flex' style={{ height: '100vh' }}>
-      {/* Sidebar */}
-      <Sidebar />
+    <Router>
+      <div className='d-flex' style={{ height: '100vh' }}>
+        {/* Sidebar */}
+        <Sidebar />
 
-      {/* Dashboard Content */}
-      <div className='flex-grow-1'>
-        <Dashboard />
+        {/* Dashboard Content */}
+        <div className='dash'>
+          <Routes>
+            <Route path='/' element={<Dashboard />} />
+            <Route path='/product' element={<Product />} />
+            <Route path='/project' element={<Project />} />
+          </Routes>
+        </div>
       </div>
-    </div>
+    </Router>
   )
 }
 

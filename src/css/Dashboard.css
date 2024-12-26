@@ -7,19 +7,19 @@
   font-size: 34px;
   width: 265px;
 }
-
-.dashboard-container {
-  background-color: #f9f9ff;
-}
-
 .col-dash {
-  width: 200px;
+  width: 190px;
   height: 95px;
-  margin: 0;
-  padding: 0;
+  margin: 0; /* Removes any margin */
+  padding: 0; /* Removes any padding */
+  display: flex;
+  flex-direction: column; /* Ensure proper alignment inside columns if needed */
 }
-
+.col-dash + .col-dash {
+  margin-left: 2px; /* Adds minimal space only between columns */
+}
 .cards {
+  gap: 0px;
   width: 230px;
   height: 97px;
   border: none;
@@ -27,19 +27,24 @@
   padding: 0;
 }
 
-/* Parent container styles */
 .row-dash {
-  margin: 0;
-  gap: 0;
+  margin: 0; /* Ensures no external margin on the row */
+  gap: 0; /* Removes any gap between the flex items */
   padding: 0;
   display: flex;
-  flex-wrap: wrap; /* Allow wrapping if needed */
+  justify-content: center;
+  align-items: center;
 }
 
 .dash-h5 {
   color: #a3aed0;
   font-size: 14px;
   font-weight: 500;
+}
+.h2-dollar {
+  color: #2b3674;
+  font-size: 34px;
+  font-weight: 700;
 }
 .dash-h3 {
   color: #2b3674;
@@ -57,4 +62,131 @@
 }
 .details {
   gap: 10px;
+}
+.cal-month {
+  margin-top: -1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7fe;
+  width: 123px;
+  height: 37px;
+  border-radius: 5px;
+  color: #a3aed0;
+}
+.calender-div {
+  position: relative;
+}
+
+.rectangle {
+  position: absolute; /* Position the circle relative to the parent */
+  top: -1rem; /* Adjust based on the desired vertical position */
+  right: 0; /* Align to the right corner */
+  width: 30px; /* Example width */
+  height: 30px; /* Example height */
+  border-radius: 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7fe;
+}
+.time-icon {
+  width: 18px;
+  height: 18px;
+}
+.h6-earning {
+  width: 100px;
+  height: 22px;
+  font-weight: 500;
+}
+.chart-card {
+  border: none;
+  width: 700px;
+}
+.main-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 336px;
+  height: 70px;
+  background-color: #f9f9ff;
+  border: none;
+}
+.bg-white {
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  height: 310px;
+}
+.btn {
+  background: linear-gradient(#5550bc, #57007b);
+  width: 52px;
+  height: 25px;
+  text-align: center;
+  padding: 0px;
+}
+.table-card {
+  border: none;
+  width: 720px;
+  height: 310px;
+}
+.table-col {
+  margin-left: 0.5rem;
+  width: 700px;
+  height: 200px;
+}
+.custom-table {
+  margin-top: -0.5rem;
+  height: 200px;
+  border-collapse: collapse;
+  width: 100%;
+  border: 1px solid #dee2e6;
+  border-radius: 1px;
+  overflow: hidden;
+}
+
+.custom-table thead th {
+  color: #a3aed0;
+  font-weight: 500;
+  font-size: 16px;
+  border: none;
+  font-weight: bold;
+  text-align: left;
+  padding: 8px;
+  background-color: transparent; /* Optional: Ensure no background shading */
+}
+
+.custom-table tbody td {
+  color: #2b3674;
+  font-size: 16px;
+  font-weight: 700;
+  border: none; /* Remove borders from body rows */
+  padding: 8px;
+}
+
+.custom-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid transparent; /* No border for body rows */
+}
+
+.rect {
+  position: absolute; /* Position the circle relative to the parent */
+  top: 1rem; /* Adjust based on the desired vertical position */
+  right: 1rem; /* Align to the right corner */
+  width: 30px; /* Example width */
+  height: 30px; /* Example height */
+  border-radius: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f4f7fe;
+}
+.custom-table thead th {
+  border-bottom: none; /* Removes border under heading */
+}
+
+.custom-table tbody tr {
+  border-top: 1px solid #dee2e6; /* Keeps horizontal lines in the body */
 }

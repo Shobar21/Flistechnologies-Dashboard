@@ -1,9 +1,19 @@
-.dashboard nav {
-  color: #57007b;
+.dashboard {
+  list-style: none;
+  text-decoration: none;
 }
 .flis {
   font-size: 24px;
   font-weight: 800;
   width: 198px;
   text-align: center;
+}
+.sidebar {
+  list-style: none;
+  width: 220px;
+  height: 100vh; /* This will make the sidebar span the full height of the viewport */
+  position: fixed; /* This ensures the sidebar stays in place even when scrolling */
+  top: 0; /* Ensures the sidebar starts from the top */
+  left: 0; /* Aligns the sidebar to the left */
+  overflow-y: auto; /* Adds vertical scrolling if the content inside the sidebar overflows */
 }

@@ -1,0 +1,12 @@
+.dash {
+  background-color: #f9f9ff;
+  flex-grow: 1; /* Ensures the dashboard fills the remaining space */
+  margin-left: 200px; /* Offset the dashboard from the sidebar */
+  padding: 20px; /* Optional padding inside the dashboard */
+  margin-top: -2rem;
+  height: auto;
+}
+body,
+html {
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
