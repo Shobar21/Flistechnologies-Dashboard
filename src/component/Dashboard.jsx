@@ -1,15 +1,15 @@
 import React from 'react'
 import { Container, Row, Col, Card, Table, Button } from 'react-bootstrap'
-import avtar from '../img/Avatar.png'
+import avtar from '../imgs/Avatar.png'
 import '../css/Dashboard.css'
-import calendar from '../img/calendar_today.png'
-import time from '../img/Icon.png'
-import month from '../img/Icon (1).png'
-import projects from '../img/Icon (2).png'
-import project from '../img/Vector (4).png'
-import product from '../img/Vector (5).png'
-import manu from '../img/Vector (6).png'
-import check from '../img/Frame 5.png'
+import calendar from '../imgs/calendar_today.png'
+import time from '../imgs/Icon.png'
+import month from '../imgs/Icon (1).png'
+import projects from '../imgs/Icon (2).png'
+import project from '../imgs/Vector (4).png'
+import product from '../imgs/Vector (5).png'
+import manu from '../imgs/Vector (6).png'
+import check from '../imgs/Frame 5.png'
 import { Line } from 'react-chartjs-2'
 import { Bar } from 'react-chartjs-2'
 
@@ -285,7 +285,7 @@ function Dashboard() {
         <Col md={4}>
           <Card
             className='p-4 shadow-sm bar-card'
-            style={{ border: 'none', width: '378px', marginLeft: '-1rem' }}
+            style={{ border: 'none', width: '378px', marginLeft: '-2rem' }}
           >
             <Row>
               <Col>
@@ -335,9 +335,10 @@ function Dashboard() {
           </Card>
         </Col>
       </Row>
+
       {/* Quick Actions and Table */}
-      <Row className='mt-4' style={{ backgroundColor: '#f9f9ff' }}>
-        <Col md={6} className='bg-white'>
+      <Row className='mt-4 tb-row' style={{ backgroundColor: '#f9f9ff' }}>
+        <Col md={6} className='bg-white' style={{ marginLeft: '1.2rem' }}>
           <div>
             <h5
               style={{

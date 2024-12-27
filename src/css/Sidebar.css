@@ -10,7 +10,7 @@
 }
 .sidebar {
   list-style: none;
-  width: 220px;
+  width: 210px;
   height: 100vh; /* This will make the sidebar span the full height of the viewport */
   position: fixed; /* This ensures the sidebar stays in place even when scrolling */
   top: 0; /* Ensures the sidebar starts from the top */

@@ -1,12 +1,13 @@
 import React from 'react'
-import avtar from '../img/Avatar.png'
+import avtar from '../imgs/Avatar.png'
 import { Container, Row, Col, Card, Button } from 'react-bootstrap'
-import calendar from '../img/calendar_today.png'
-import time from '../img/Icon.png'
-import month from '../img/Icon (1).png'
-import projects from '../img/Icon (2).png'
-import products from '../img/Vector (7).png'
+import calendar from '../imgs/calendar_today.png'
+import time from '../imgs/Icon.png'
+import month from '../imgs/Icon (1).png'
+import projects from '../imgs/Icon (2).png'
+import products from '../imgs/Vector (7).png'
 import '../css/Product.css'
+import ProductImg from './ProductImg'
 
 function Product() {
   return (
@@ -116,6 +117,9 @@ function Product() {
           </Card>
         </Col>
       </Row>
+      <div className='productimg-container'>
+        <ProductImg />
+      </div>
     </Container>
   )
 }

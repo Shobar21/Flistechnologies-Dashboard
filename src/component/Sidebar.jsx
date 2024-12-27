@@ -1,9 +1,9 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom' // Use NavLink for routing
-import home from '../img/Vector.png'
-import product from '../img/Vector (1).png'
-import project from '../img/Vector (2).png'
-import signin from '../img/Vector (3).png'
+import home from '../imgs/Vector.png'
+import product from '../imgs/Vector (1).png'
+import project from '../imgs/Vector (2).png'
+import signin from '../imgs/Vector (3).png'
 import '../css/Sidebar.css'
 
 function Sidebar() {
@@ -41,6 +41,13 @@ function Sidebar() {
         >
           <img src={signin} alt='Sign In' className='me-2' />
           Sign In
+        </NavLink>
+        <NavLink
+          to='/signin'
+          className=' dashboard text-white d-flex align-items-center mt-3'
+        >
+          <img src={signin} alt='Sign In' className='me-2' />
+          Sign Out
         </NavLink>
       </div>
     </div>
