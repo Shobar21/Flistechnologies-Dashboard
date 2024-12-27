@@ -1,7 +1,12 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Image } from 'react-bootstrap' // Ensure Image is imported
+import { Container, Row, Col, Modal, Button, Image } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import {
+  faEdit,
+  faTrash,
+  faPen,
+  faImage,
+} from '@fortawesome/free-solid-svg-icons'
 import img1 from '../imgs/Rectangle 3862.png'
 import img2 from '../imgs/Rectangle 3863.png'
 import img3 from '../imgs/Rectangle 3864.png'
@@ -38,6 +43,27 @@ const productImages = [
 ]
 
 function ProductImg() {
+  const [showModal, setShowModal] = useState(false)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [isEditable, setIsEditable] = useState({
+    title: false,
+    url: false,
+    description: false,
+  })
+
+  const handleEdit = (project) => {
+    setSelectedImage(project)
+    setShowModal(true)
+  }
+
+  const handleFieldEdit = (field) => {
+    setIsEditable((prev) => ({ ...prev, [field]: !prev[field] }))
+  }
+
+  const handleClose = () => {
+    setShowModal(false)
+    setIsEditable({ title: false, url: false, description: false })
+  }
   return (
     <Container className='productModel'>
       <div>
@@ -72,16 +98,18 @@ function ProductImg() {
                 }}
               >
                 <button
-                  className='btn '
+                  className='btn'
                   style={{
                     color: '#fff',
                     width: '28%', // Ensures buttons are slightly spaced
                     height: '30px',
                   }}
+                  onClick={() => handleEdit(product)}
                 >
                   <FontAwesomeIcon icon={faEdit} className='me-1' />
                   Edit
                 </button>
+
                 <button
                   className='btn '
                   style={{
@@ -160,6 +188,117 @@ function ProductImg() {
           ))}
         </Container>
       </Row>
+
+      {/* Modal */}
+      {selectedImage && (
+        <Modal
+          show={showModal}
+          onHide={handleClose}
+          centered
+          dialogClassName='custom-modal'
+        >
+          <div>
+            <Button
+              variant='light'
+              onClick={handleClose}
+              className='right-closeButton'
+            >
+              &times;
+            </Button>
+          </div>
+          <Modal.Body>
+            {/* Image and Change Button */}
+            <div className='mb-3 mt-5 position-relative'>
+              <img
+                src={selectedImage.img}
+                alt='Selected'
+                className='img-fluid rounded mb-3'
+                style={{
+                  width: '70%',
+                  height: '300px',
+                  objectFit: 'cover',
+                  marginLeft: '4rem',
+                  borderRadius: '5%',
+                  opacity: 0.6,
+                }}
+              />
+              <Button
+                className='centered-button'
+                style={{ background: '#fff' }}
+              >
+                <FontAwesomeIcon
+                  icon={faImage}
+                  style={{ backgroundColor: '#982fc5' }}
+                  className='me-1'
+                />
+                Change Image
+              </Button>
+            </div>
+
+            {/* Title Input with Edit Button Inside */}
+            <div className='mb-3 position-relative'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='Title'
+                defaultValue='Lorem Ipsum'
+                readOnly={!isEditable.title}
+                style={{ border: '2px solid #c78fdf' }}
+              />
+              <Button
+                onClick={() => handleFieldEdit('title')}
+                className='input-edit-button'
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </Button>
+            </div>
+
+            {/* URL Input with Edit Button Inside */}
+            <div className='mb-3 position-relative'>
+              <input
+                type='text'
+                className='form-control'
+                placeholder='URL'
+                defaultValue='https://www.figma.co...'
+                readOnly={!isEditable.url}
+                style={{ border: '2px solid #c78fdf' }}
+              />
+              <Button
+                onClick={() => handleFieldEdit('url')}
+                className='input-edit-button'
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </Button>
+            </div>
+
+            {/* Description Textarea with Edit Button Inside */}
+            <div className='mb-3 position-relative'>
+              <textarea
+                className='form-control'
+                placeholder='Description'
+                rows={5}
+                defaultValue='Lorem ipsum dolor sit amet consectetur. Vitae ut fringilla egestas consectetur nunc tincidunt.'
+                readOnly={!isEditable.description}
+                style={{ border: '2px solid #c78fdf' }}
+              ></textarea>
+              <Button
+                onClick={() => handleFieldEdit('description')}
+                className='input-edit-button'
+                style={{ marginTop: '3rem' }}
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </Button>
+            </div>
+            <Button
+              variant='primary'
+              onClick={handleClose}
+              style={{ width: '100px', height: '40px', marginLeft: '12rem' }}
+            >
+              Done
+            </Button>
+          </Modal.Body>
+        </Modal>
+      )}
     </Container>
   )
 }

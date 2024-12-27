@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import avtar from '../imgs/Avatar.png'
-import { Container, Row, Col, Card, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap'
 import calendar from '../imgs/calendar_today.png'
 import time from '../imgs/Icon.png'
 import projects from '../imgs/Icon (2).png'
@@ -9,6 +9,23 @@ import '../css/Project.css'
 import ProjectImg from './ProjectImg'
 
 function Project() {
+  const [showModal, setShowModal] = useState(false)
+  const [uploadedImage, setUploadedImage] = useState(null)
+
+  const handleShow = () => setShowModal(true)
+  const handleClose = () => setShowModal(false)
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onload = () => {
+        setUploadedImage(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
+
   return (
     <Container fluid className='p-4 project-container'>
       <Row>
@@ -81,7 +98,11 @@ function Project() {
                 >
                   Add Projects
                 </h5>
-                <Button variant='primary' className='button'>
+                <Button
+                  variant='primary'
+                  className='button'
+                  onClick={handleShow}
+                >
                   +
                 </Button>
               </div>
@@ -92,6 +113,95 @@ function Project() {
       <div className='productimg-container'>
         <ProjectImg />
       </div>
+
+      {/* Modal */}
+      <Modal
+        show={showModal}
+        onHide={handleClose}
+        centered
+        dialogClassName='custom-modal-width'
+      >
+        <div>
+          <Button
+            variant='light'
+            onClick={handleClose}
+            className='right-closeButton'
+          >
+            &times;
+          </Button>
+        </div>
+        <Modal.Body>
+          <Form className='d-flex flex-column align-items-center'>
+            <div className='text-center mb-4'>
+              <div
+                style={{
+                  width: '300px',
+                  height: '200px',
+                  border: '2px solid #ddd',
+                  borderRadius: '8px',
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  backgroundColor: '#000000A3',
+                }}
+              >
+                {uploadedImage ? (
+                  <img
+                    src={uploadedImage}
+                    alt='Uploaded'
+                    style={{
+                      maxWidth: '100%',
+                      maxHeight: '100%',
+                      borderRadius: '8px',
+                    }}
+                  />
+                ) : (
+                  <Button
+                    as='label'
+                    variant='light'
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      background: '#fff',
+                      width: '134px',
+                      height: '39px',
+                      fontSize: '12px',
+                    }}
+                  >
+                    Upload Image
+                    <input
+                      type='file'
+                      accept='image/*'
+                      onChange={handleImageUpload}
+                      hidden
+                    />
+                  </Button>
+                )}
+              </div>
+            </div>
+            <Form.Group
+              controlId='formTitle'
+              className='mb-3 w-75'
+              style={{ border: '2px solid #c78fdf' }}
+            >
+              <Form.Control type='text' placeholder='Add Title...' />
+            </Form.Group>
+
+            <Form.Group controlId='formDescription' className='mb-3 w-75'>
+              <Form.Control
+                as='textarea'
+                rows={3}
+                placeholder='Add Description...'
+                style={{ border: '2px solid #c78fdf' }}
+              />
+            </Form.Group>
+            <Button className='mt-3' style={{ width: '100px', height: '40px' }}>
+              Done
+            </Button>
+          </Form>
+        </Modal.Body>
+      </Modal>
     </Container>
   )
 }

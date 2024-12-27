@@ -33,3 +33,25 @@
   font-weight: 500;
   color: #a3aed0;
 }
+/* //modal */
+.right-closeButton {
+  position: absolute;
+  top: 8px;
+  left: 10px;
+  background: #fff;
+  z-index: 1000;
+  font-size: 20px;
+  color: #57007b;
+  border: 2px solid #57007b !important;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  line-height: 20px;
+  padding: 0;
+  text-align: center;
+}
+.custom-modal-width .modal-dialog {
+  background-color: red;
+  width: 600px !important; /* Set desired width */
+  margin: auto; /* Center the modal */
+}
