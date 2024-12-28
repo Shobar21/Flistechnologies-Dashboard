@@ -1,5 +1,13 @@
 import { useState } from 'react'
-import { Container, Row, Col, Modal, Button, Image } from 'react-bootstrap'
+import {
+  Container,
+  Row,
+  Col,
+  Modal,
+  Button,
+  Image,
+  Form,
+} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEdit,
@@ -46,6 +54,19 @@ const projectImages = [
 ]
 
 function ProjectImg() {
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [editData, setEditData] = useState({})
+
+  const handleOpenEditModal = (data) => {
+    setEditData(data)
+    setShowEditModal(true)
+  }
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false)
+    setEditData({})
+  }
+
   const [showModal, setShowModal] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
   const [showMobileModal, setShowMobileModal] = useState(false) // Add this
@@ -189,7 +210,20 @@ function ProjectImg() {
                           height: '34px',
                         }}
                       >
-                        <FontAwesomeIcon icon={faEdit} className='me-1' />
+                        <FontAwesomeIcon
+                          icon={faEdit}
+                          className='me-1'
+                          onClick={() =>
+                            handleOpenEditModal({
+                              image: img,
+                              title: 'Lorem Ipsum',
+                              url: 'https://www.example.com',
+                              description: 'Sample description',
+                              name: 'John Doe',
+                              designation: 'Developer',
+                            })
+                          }
+                        />
                         Edit
                       </button>
                       <button
@@ -241,7 +275,7 @@ function ProjectImg() {
                   style={{
                     width: '100%',
                     height: '150px',
-                    backgroundColor: '#EAEAEA',
+                    backgroundColor: '#000000A3',
                     borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
@@ -249,7 +283,11 @@ function ProjectImg() {
                     cursor: 'pointer',
                   }}
                 >
-                  <FontAwesomeIcon icon={faCloudUploadAlt} size='2x' />
+                  <FontAwesomeIcon
+                    icon={faCloudUploadAlt}
+                    size='2x'
+                    style={{ color: '#57007B' }}
+                  />
                 </div>
               </div>
 
@@ -261,75 +299,13 @@ function ProjectImg() {
                   className='form-control mb-3'
                   style={{ border: '2px solid #c78fdf' }}
                 />
-                <input
-                  type='text'
-                  placeholder='Add URL...'
-                  className='form-control mb-3'
-                  style={{ border: '2px solid #c78fdf' }}
-                />
+
                 <textarea
                   placeholder='Add Description...'
                   className='form-control mb-3'
-                  rows={4}
+                  rows={5}
                   style={{ border: '2px solid #c78fdf' }}
                 ></textarea>
-                <textarea
-                  placeholder='Add Feedback...'
-                  className='form-control mb-3'
-                  style={{ border: '2px solid #c78fdf' }}
-                  rows={4}
-                ></textarea>
-              </div>
-
-              {/* Profile Section */}
-              <div className='d-flex justify-content-space mb-4'>
-                <div
-                  style={{
-                    width: '80px',
-                    height: '80px',
-                    backgroundColor: '#EAEAEA',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    marginLeft: '1.5rem',
-                    marginTop: '0rem',
-                  }}
-                >
-                  <FontAwesomeIcon icon={faUser} size='lg' />
-                </div>
-                <div
-                  style={{
-                    flex: 1,
-                    width: '160px',
-                    marginLeft: '10rem',
-                    marginTop: '-5.5rem',
-                  }}
-                >
-                  <input
-                    type='text'
-                    placeholder='Add Name'
-                    className='form-control mb-2'
-                    style={{ border: '2px solid #c78fdf' }}
-                  />
-                  <input
-                    type='text'
-                    placeholder='Add Designation'
-                    className='form-control'
-                    style={{ border: '2px solid #c78fdf' }}
-                  />
-                </div>
-              </div>
-
-              {/* Star Rating */}
-              <div className='text-center mb-4'>
-                {[...Array(5)].map((_, index) => (
-                  <FontAwesomeIcon
-                    key={index}
-                    icon={faStar}
-                    style={{ color: '#DDD', cursor: 'pointer' }}
-                  />
-                ))}
               </div>
 
               {/* Done Button */}
@@ -339,6 +315,120 @@ function ProjectImg() {
             </Modal.Body>
           </Modal>
         )}
+        {/* Edit Modal */}
+        <Modal
+          show={showEditModal}
+          onHide={handleCloseEditModal}
+          centered
+          className='editmodal'
+        >
+          <div className='d-flex align-items-center mb-4'>
+            <button
+              className='clickbutton btn p-0'
+              onClick={handleCloseEditModal}
+              style={{
+                fontSize: '1.8rem',
+                color: '#333',
+                marginLeft: '-22rem',
+                marginTop: '1rem',
+                backgroundColor: '#fff !important',
+              }}
+            >
+              ←
+            </button>
+          </div>
+          <Modal.Body>
+            <div className='d-flex flex-column align-items-center'>
+              {/* Rectangle Image Container */}
+              <div
+                className='mb-3 position-relative'
+                style={{
+                  width: '80%',
+                  height: '250px',
+                  border: '1px solid #ddd',
+                }}
+              >
+                <img
+                  src={editData.image}
+                  alt='Edit'
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: 0.4,
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faCloudUploadAlt}
+                  size='2x'
+                  style={{ marginLeft: '-10rem' }}
+                />
+              </div>
+
+              <Form style={{ width: '80%' }}>
+                {/* Input Fields with Edit Buttons */}
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editTitle'
+                >
+                  <Form.Control
+                    type='text'
+                    defaultValue={editData.title}
+                    placeholder='Enter Title'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      top: '8px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '26px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editDescription'
+                >
+                  <Form.Control
+                    as='textarea'
+                    rows={4}
+                    defaultValue={editData.description}
+                    placeholder='Enter Description'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      bottom: '10px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '30px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                {/* Done Button */}
+                <Button
+                  variant='primary'
+                  className='mt-3 done'
+                  onClick={handleCloseEditModal}
+                  style={{ marginLeft: '6rem' }}
+                >
+                  Done
+                </Button>
+              </Form>
+            </div>
+          </Modal.Body>
+        </Modal>
       </Row>
 
       {/* Modal */}

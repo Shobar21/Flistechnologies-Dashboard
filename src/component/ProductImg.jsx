@@ -1,5 +1,13 @@
 import React, { useState } from 'react'
-import { Container, Row, Col, Modal, Button, Image } from 'react-bootstrap'
+import {
+  Container,
+  Row,
+  Col,
+  Modal,
+  Button,
+  Image,
+  Form,
+} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEdit,
@@ -46,6 +54,18 @@ const productImages = [
 ]
 
 function ProductImg() {
+  const [showEditModal, setShowEditModal] = useState(false)
+  const [editData, setEditData] = useState({})
+
+  const handleOpenEditModal = (data) => {
+    setEditData(data)
+    setShowEditModal(true)
+  }
+
+  const handleCloseEditModal = () => {
+    setShowEditModal(false)
+    setEditData({})
+  }
   const [showModal, setShowModal] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
   const [isEditable, setIsEditable] = useState({
@@ -140,6 +160,7 @@ function ProductImg() {
           </Col>
         ))}
       </Row>
+
       {/* responsive part */}
       <Row className='d-block d-md-none my-4 justify-content-center'>
         <Container>
@@ -192,6 +213,16 @@ function ProductImg() {
                           width: '43%',
                           height: '34px',
                         }}
+                        onClick={() =>
+                          handleOpenEditModal({
+                            image: img,
+                            title: 'Lorem Ipsum',
+                            url: 'https://www.example.com',
+                            description: 'Sample description',
+                            name: 'John Doe',
+                            designation: 'Developer',
+                          })
+                        }
                       >
                         <FontAwesomeIcon icon={faEdit} className='me-1' />
                         Edit
@@ -214,6 +245,263 @@ function ProductImg() {
             </Row>
           ))}
         </Container>
+
+        {/* Edit Modal */}
+        <Modal
+          show={showEditModal}
+          onHide={handleCloseEditModal}
+          centered
+          className='editmodal'
+        >
+          <div className='d-flex align-items-center mb-4'>
+            <button
+              className='clickbutton btn p-0'
+              onClick={handleCloseEditModal}
+              style={{
+                fontSize: '1.8rem',
+                color: '#333',
+                marginLeft: '-22rem',
+                marginTop: '1rem',
+                backgroundColor: '#fff !important',
+              }}
+            >
+              ←
+            </button>
+          </div>
+          <Modal.Body>
+            <div className='d-flex flex-column align-items-center'>
+              {/* Rectangle Image Container */}
+              <div
+                className='mb-3 position-relative'
+                style={{
+                  width: '80%',
+                  height: '250px',
+                  border: '1px solid #ddd',
+                }}
+              >
+                <img
+                  src={editData.image}
+                  alt='Edit'
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    opacity: 0.4,
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faCloudUploadAlt}
+                  size='2x'
+                  style={{ marginLeft: '-9rem' }}
+                />
+              </div>
+
+              <Form style={{ width: '80%' }}>
+                {/* Input Fields with Edit Buttons */}
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editTitle'
+                >
+                  <Form.Control
+                    type='text'
+                    defaultValue={editData.title}
+                    placeholder='Enter Title'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      top: '8px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '26px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editUrl'
+                >
+                  <Form.Control
+                    type='url'
+                    defaultValue={editData.url}
+                    placeholder='Enter URL'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      top: '8px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '26px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editDescription'
+                >
+                  <Form.Control
+                    as='textarea'
+                    rows={4}
+                    defaultValue={editData.description}
+                    placeholder='Enter Description'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      bottom: '10px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '30px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editfeedback'
+                >
+                  <Form.Control
+                    as='textarea'
+                    rows={4}
+                    defaultValue={editData.feedback}
+                    placeholder='Enter Feedback'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      bottom: '10px',
+                      right: '10px',
+                      color: '#fcfdff',
+                      width: '30px',
+                      height: '23px',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+
+                {/* Circle Image Container + Name/Designation */}
+                <div className='d-flex  mb-3'>
+                  <div className='me-3'>
+                    <img
+                      src={editData.image}
+                      alt='Edit'
+                      style={{
+                        width: '80px',
+                        height: '80px',
+                        borderRadius: '50%',
+                        objectFit: 'cover',
+                        opacity: 0.3,
+                        border: '1px solid black',
+                      }}
+                    />
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='1.99x'
+                      style={{ marginLeft: '-3rem' }}
+                    />
+                  </div>
+
+                  <div className='flex-grow-1'>
+                    <Form.Group
+                      className='mb-3 position-relative'
+                      controlId='editName'
+                      style={{
+                        width: '170px',
+                        marginLeft: '7rem',
+                        marginTop: '-6rem',
+                      }}
+                    >
+                      <Form.Control
+                        type='text'
+                        defaultValue={editData.name}
+                        placeholder='Enter Name'
+                      />
+                      <Button
+                        variant='link'
+                        className='position-absolute'
+                        style={{
+                          top: '8px',
+                          right: '10px',
+                          color: '#fcfdff',
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faEdit} />
+                      </Button>
+                    </Form.Group>
+                    <Form.Group
+                      className='mb-3 position-relative'
+                      controlId='editDesignation'
+                      style={{
+                        width: '170px',
+                        marginLeft: '7rem',
+                      }}
+                    >
+                      <Form.Control
+                        type='text'
+                        defaultValue={editData.designation}
+                        placeholder='Enter Designation'
+                      />
+                      <Button
+                        className='position-absolute'
+                        style={{
+                          top: '10px',
+                          right: '10px',
+                          color: '#fcfdff',
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faEdit} />
+                      </Button>
+                    </Form.Group>
+                  </div>
+                </div>
+
+                {/* Star Ratings */}
+                <Form.Group className='mb-3' controlId='editStars'>
+                  <div style={{ marginLeft: '6rem' }}>
+                    {[...Array(5)].map((_, i) => (
+                      <span
+                        key={i}
+                        style={{
+                          color: '#FFD700',
+                          fontSize: '20px',
+                        }}
+                      >
+                        ★
+                      </span>
+                    ))}
+                  </div>
+                </Form.Group>
+
+                {/* Done Button */}
+                <Button
+                  variant='primary'
+                  className='mt-3 done'
+                  onClick={handleCloseEditModal}
+                  style={{ marginLeft: '6rem' }}
+                >
+                  Done
+                </Button>
+              </Form>
+            </div>
+          </Modal.Body>
+        </Modal>
 
         {/* Mobile Modal */}
         {showMobileModal && (

@@ -5,15 +5,6 @@
   transform: translate(-50%, -50%);
   z-index: 1;
 }
-.Projects-heading::after {
-  content: '' !important;
-  position: absolute !important;
-  bottom: -0.5rem !important;
-  left: 12rem !important;
-  width: 8% !important;
-  height: 2px !important;
-  background: linear-gradient(#5550bc, #57007b) !important;
-}
 
 .input-edit-button {
   position: absolute;
