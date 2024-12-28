@@ -6,6 +6,9 @@ import {
   faTrash,
   faPen,
   faImage,
+  faCloudUploadAlt,
+  faUser,
+  faStar,
 } from '@fortawesome/free-solid-svg-icons'
 import img1 from '../imgs/Rectangle 3862.png'
 import img2 from '../imgs/Rectangle 3863.png'
@@ -51,6 +54,8 @@ function ProductImg() {
     description: false,
   })
 
+  const [showMobileModal, setShowMobileModal] = useState(false) // Add this
+
   const handleEdit = (project) => {
     setSelectedImage(project)
     setShowModal(true)
@@ -63,6 +68,15 @@ function ProductImg() {
   const handleClose = () => {
     setShowModal(false)
     setIsEditable({ title: false, url: false, description: false })
+  }
+  const handleOpenMobileModal = () => {
+    console.log('Opening Mobile Modal') // Debugging log
+    setShowMobileModal(true) // Update the state to show the modal
+  }
+
+  const handleCloseMobileModal = () => {
+    console.log('Closing Mobile Modal') // Debugging log
+    setShowMobileModal(false) // Update the state to hide the modal
   }
   return (
     <Container className='productModel'>
@@ -126,14 +140,18 @@ function ProductImg() {
           </Col>
         ))}
       </Row>
-
-      {/* Mobile Product Layout (Only img1 and img2, 12 images total, 6 rows) */}
+      {/* responsive part */}
       <Row className='d-block d-md-none my-4 justify-content-center'>
         <Container>
-          <Button variant='primary' className='btn-product'>
+          <Button
+            variant='primary'
+            className='btn-product'
+            onClick={handleOpenMobileModal}
+          >
             +
           </Button>
-          {/* Loop through 6 rows with only img1 and img2 */}
+
+          {/* Product Rows */}
           {Array.from({ length: 6 }).map((_, rowIndex) => (
             <Row key={rowIndex} className='mb-4'>
               {[img1, img2].map((img, colIndex) => (
@@ -164,14 +182,14 @@ function ProductImg() {
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
                         width: '155px', // Matches the image width
-                        margin: '0 auto', // Centers the buttons within the container
+                        margin: '0 auto',
                       }}
                     >
                       <button
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '43%', // Ensures buttons are slightly spaced
+                          width: '43%',
                           height: '34px',
                         }}
                       >
@@ -196,6 +214,135 @@ function ProductImg() {
             </Row>
           ))}
         </Container>
+
+        {/* Mobile Modal */}
+        {showMobileModal && (
+          <Modal
+            show={showMobileModal}
+            onHide={() => setShowMobileModal(false)}
+          >
+            <Modal.Body style={{ padding: '1.5rem' }}>
+              {/* Close Button */}
+              <div className='d-flex align-items-center mb-4'>
+                <button
+                  className='clickbutton btn p-0'
+                  onClick={() => setShowMobileModal(false)}
+                  style={{
+                    fontSize: '1.8rem',
+                    color: '#333',
+                    marginLeft: '-22rem',
+                    marginTop: '-1rem',
+                    backgroundColor: '#fff !important',
+                  }}
+                >
+                  ←
+                </button>
+              </div>
+
+              {/* Upload Image Section */}
+              <div className='text-center mb-4'>
+                <div
+                  style={{
+                    width: '100%',
+                    height: '150px',
+                    backgroundColor: '#EAEAEA',
+                    borderRadius: '8px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <FontAwesomeIcon icon={faCloudUploadAlt} size='2x' />
+                </div>
+              </div>
+
+              {/* Input Fields */}
+              <div className='mb-4'>
+                <input
+                  type='text'
+                  placeholder='Add Title...'
+                  className='form-control mb-3'
+                  style={{ border: '2px solid #c78fdf' }}
+                />
+                <input
+                  type='text'
+                  placeholder='Add URL...'
+                  className='form-control mb-3'
+                  style={{ border: '2px solid #c78fdf' }}
+                />
+                <textarea
+                  placeholder='Add Description...'
+                  className='form-control mb-3'
+                  rows={4}
+                  style={{ border: '2px solid #c78fdf' }}
+                ></textarea>
+                <textarea
+                  placeholder='Add Feedback...'
+                  className='form-control mb-3'
+                  style={{ border: '2px solid #c78fdf' }}
+                  rows={4}
+                ></textarea>
+              </div>
+
+              {/* Profile Section */}
+              <div className='d-flex justify-content-space mb-4'>
+                <div
+                  style={{
+                    width: '80px',
+                    height: '80px',
+                    backgroundColor: '#EAEAEA',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    marginLeft: '1.5rem',
+                    marginTop: '0rem',
+                  }}
+                >
+                  <FontAwesomeIcon icon={faUser} size='lg' />
+                </div>
+                <div
+                  style={{
+                    flex: 1,
+                    width: '160px',
+                    marginLeft: '10rem',
+                    marginTop: '-5.5rem',
+                  }}
+                >
+                  <input
+                    type='text'
+                    placeholder='Add Name'
+                    className='form-control mb-2'
+                    style={{ border: '2px solid #c78fdf' }}
+                  />
+                  <input
+                    type='text'
+                    placeholder='Add Designation'
+                    className='form-control'
+                    style={{ border: '2px solid #c78fdf' }}
+                  />
+                </div>
+              </div>
+
+              {/* Star Rating */}
+              <div className='text-center mb-4'>
+                {[...Array(5)].map((_, index) => (
+                  <FontAwesomeIcon
+                    key={index}
+                    icon={faStar}
+                    style={{ color: '#DDD', cursor: 'pointer' }}
+                  />
+                ))}
+              </div>
+
+              {/* Done Button */}
+              <div className='text-center'>
+                <button className='btn btn-primary done  '>Done</button>
+              </div>
+            </Modal.Body>
+          </Modal>
+        )}
       </Row>
 
       {/* Modal */}
