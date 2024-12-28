@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Container, Row, Col, Modal, Button } from 'react-bootstrap'
+import { Container, Row, Col, Modal, Button, Image } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faEdit,
@@ -78,7 +78,7 @@ function ProjectImg() {
 
       {/* Project Images */}
       <Row
-        className='d-flex align-items-center justify-content-center d-none d-md-flex'
+        className='d-none d-md-flex align-items-center justify-content-center mt-5'
         style={{ marginLeft: '-1rem', width: '1100px' }}
       >
         {projectImages.map((project) => (
@@ -122,6 +122,77 @@ function ProjectImg() {
             </div>
           </Col>
         ))}
+      </Row>
+
+      {/* Mobile Product Layout (Only img1 and img2, 12 images total, 6 rows) */}
+      <Row className='d-block d-md-none my-4 justify-content-center'>
+        <Container>
+          <Button variant='primary' className='btn-project'>
+            +
+          </Button>
+          {/* Loop through 6 rows with only img1 and img2 */}
+          {Array.from({ length: 6 }).map((_, rowIndex) => (
+            <Row key={rowIndex} className='mb-4'>
+              {[img1, img2].map((img, colIndex) => (
+                <Col
+                  key={colIndex}
+                  md={6}
+                  xs={6}
+                  className='text-center'
+                  style={{ marginLeft: '0rem' }}
+                >
+                  <div
+                    className='image-container mt-5'
+                    style={{ position: 'relative' }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`Image ${colIndex + 1}`}
+                      fluid
+                      style={{
+                        cursor: 'pointer',
+                        width: '134.71px',
+                        height: '142px',
+                        objectFit: 'cover',
+                      }}
+                    />
+
+                    <div
+                      className='buttons-ed mt-3 d-flex justify-content-between'
+                      style={{
+                        width: '155px', // Matches the image width
+                        margin: '0 auto', // Centers the buttons within the container
+                      }}
+                    >
+                      <button
+                        className='btn '
+                        style={{
+                          color: '#fff',
+                          width: '43%', // Ensures buttons are slightly spaced
+                          height: '34px',
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faEdit} className='me-1' />
+                        Edit
+                      </button>
+                      <button
+                        className='btn '
+                        style={{
+                          color: '#fff',
+                          width: '42%',
+                          height: '34px',
+                        }}
+                      >
+                        <FontAwesomeIcon icon={faTrash} className='me-1' />
+                        Delete
+                      </button>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          ))}
+        </Container>
       </Row>
 
       {/* Modal */}

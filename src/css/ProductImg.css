@@ -78,12 +78,13 @@
   .Products-heading {
     font-size: 18.11px;
     font-weight: 700;
+    margin-left: -1.5rem;
   }
   .Products-heading::after {
     content: '';
     position: absolute;
     bottom: -0.5rem;
-    left: 11.8rem;
+    left: 12rem;
     width: 8%;
     height: 2px;
     background: linear-gradient(#5550bc, #57007b);
@@ -111,30 +112,20 @@
     border-bottom-right-radius: 8px; /* Rounded corners (optional) */
   }
   .overlay-text {
-    bottom: -1rem !important;
+    bottom: 5rem !important;
     margin-left: 0rem !important;
     width: 130px !important;
   }
-
-  .img-hole {
-    margin-top: 2rem;
-    width: 289.71px;
-    height: 150.68px;
+  .btn-product {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-left: 21rem;
+    padding: 0;
   }
-
-  .txt-box {
-    margin-left: -2rem;
-    width: 315px;
-    height: 112px;
-    font-size: 12.11px;
-    font-weight: 400;
-    line-height: 24.22px;
-  }
-  .purches-btn {
-    margin-top: -3rem;
-    margin-left: 20px;
-    width: 70%;
-    text-align: center;
-    padding: 5px 0;
+  .buttons-ed {
+    flex-direction: row;
+    display: flex !important;
+    justify-content: space-between !important;
   }
 }

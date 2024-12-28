@@ -130,13 +130,22 @@ function ProductImg() {
       {/* Mobile Product Layout (Only img1 and img2, 12 images total, 6 rows) */}
       <Row className='d-block d-md-none my-4 justify-content-center'>
         <Container>
+          <Button variant='primary' className='btn-product'>
+            +
+          </Button>
           {/* Loop through 6 rows with only img1 and img2 */}
           {Array.from({ length: 6 }).map((_, rowIndex) => (
             <Row key={rowIndex} className='mb-4'>
               {[img1, img2].map((img, colIndex) => (
-                <Col key={colIndex} md={6} xs={6} className='text-center'>
+                <Col
+                  key={colIndex}
+                  md={6}
+                  xs={6}
+                  className='text-center'
+                  style={{ marginLeft: '-1rem' }}
+                >
                   <div
-                    className='image-container'
+                    className='image-container mt-5'
                     style={{ position: 'relative' }}
                   >
                     <Image
@@ -152,9 +161,9 @@ function ProductImg() {
                     />
                     <p className='overlay-text'>Lorem Ipsum</p>
                     <div
-                      className='mt-3 d-flex justify-content-between'
+                      className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '300px', // Matches the image width
+                        width: '155px', // Matches the image width
                         margin: '0 auto', // Centers the buttons within the container
                       }}
                     >
@@ -162,8 +171,8 @@ function ProductImg() {
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '18%', // Ensures buttons are slightly spaced
-                          height: '30px',
+                          width: '43%', // Ensures buttons are slightly spaced
+                          height: '34px',
                         }}
                       >
                         <FontAwesomeIcon icon={faEdit} className='me-1' />
@@ -173,8 +182,8 @@ function ProductImg() {
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '18%',
-                          height: '30px',
+                          width: '42%',
+                          height: '34px',
                         }}
                       >
                         <FontAwesomeIcon icon={faTrash} className='me-1' />

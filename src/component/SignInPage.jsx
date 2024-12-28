@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Form, Button, Row, Col, InputGroup } from 'react-bootstrap'
 import { FaUser, FaLock } from 'react-icons/fa'
-
+import '../css/Signin.css'
 function SignInPage() {
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -19,7 +19,7 @@ function SignInPage() {
       }}
     >
       <Container
-        className='p-4'
+        className='p-4 signin'
         style={{
           maxWidth: '400px',
           backgroundColor: 'white',

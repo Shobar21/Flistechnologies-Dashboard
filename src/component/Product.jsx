@@ -36,7 +36,7 @@ function Product() {
           <h2 className='main-dash'>Products</h2>
         </Col>
         <Col className='text-end'>
-          <img src={avtar} alt='User' className='rounded-circle' />
+          <img src={avtar} alt='User' className='rounded-circle avtar' />
         </Col>
       </Row>
 
@@ -46,10 +46,10 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={time} alt='time' />
+                <img src={time} alt='time' className='small-icons' />
               </div>
               <div className='info'>
-                <h5 className='product-h5'>All Time Earnings</h5>
+                <h5 className='product-h5'>All Time Earnings </h5>
                 <h3 className='product-h3'>$1000</h3>
               </div>
             </div>
@@ -59,7 +59,7 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={month} alt='month' />
+                <img src={month} alt='month' className='small-icons' />
               </div>
               <div className='info'>
                 <h5 className='product-h5'>Earnings This Month</h5>
@@ -72,19 +72,21 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='info'>
-                <div className=' d-flex '>
-                  <h5 className='product-h5'> Product Sold</h5>
+                <div className=' d-flex product-sale '>
+                  <h5 className='product-h5 solds'> Product Sold</h5>
                   <div className='cal'>
                     <img
                       src={calendar}
                       alt='calendar'
+                      className='small-icons'
                       style={{ marginLeft: '0.1rem' }}
                     />{' '}
                     This month
                   </div>
                 </div>
-                <h3 className='product-h3'>10</h3>
+                <h3 className='product-h3 numb'>10</h3>
                 <h6
+                  className='h6-span'
                   style={{
                     color: '#A3AED0',
                     fontSize: '12px',
@@ -102,7 +104,7 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={projects} alt='projects' />
+                <img src={projects} alt='projects' className='small-icons' />
               </div>
               <div className='info'>
                 <h5 className='product-h5'>Total Projects</h5>
@@ -115,7 +117,7 @@ function Product() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={products} alt='products' />
+                <img src={products} alt='products' className='small-icons' />
               </div>
               <div className='info-product d-flex'>
                 <h5

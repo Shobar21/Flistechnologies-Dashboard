@@ -2,18 +2,101 @@
   list-style: none;
   text-decoration: none;
 }
+
 .flis {
   font-size: 24px;
   font-weight: 800;
   width: 198px;
   text-align: center;
 }
+
 .sidebar {
   list-style: none;
   width: 210px;
-  height: 100vh; /* This will make the sidebar span the full height of the viewport */
-  position: fixed; /* This ensures the sidebar stays in place even when scrolling */
-  top: 0; /* Ensures the sidebar starts from the top */
-  left: 0; /* Aligns the sidebar to the left */
-  overflow-y: auto; /* Adds vertical scrolling if the content inside the sidebar overflows */
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-y: auto;
+}
+
+.close-btn {
+  display: none;
+}
+
+.mobile-navbar {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  /* Sidebar styles for mobile */
+  .sidebar {
+    transform: translateX(100%); /* Hidden sidebar */
+    right: 0; /* Align to the right */
+    left: auto; /* Disable left positioning */
+    width: 250px;
+    height: 100vh;
+    background-color: #343a40;
+    transition: transform 0.3s ease-in-out;
+    position: fixed;
+  }
+
+  .sidebar.open {
+    transform: translateX(0); /* Show sidebar when open */
+    z-index: 1000;
+  }
+
+  .close-btn {
+    display: block !important; /* Show only for mobile */
+    position: absolute !important;
+    top: 10px !important;
+    right: 15px !important;
+    font-size: 24px !important;
+    background: none !important;
+    border: none !important;
+    color: white !important;
+    cursor: pointer !important;
+  }
+
+  /* Mobile Navbar */
+  .mobile-navbar {
+    display: flex !important;
+    justify-content: space-between !important;
+    background-color: #f9f9ff !important;
+    color: black !important;
+  }
+
+  .flis {
+    margin-left: -9rem;
+    margin-top: 1rem;
+    font-weight: 800;
+    font-size: 24px;
+  }
+
+  .menu-btn {
+    font-weight: 800;
+    margin-left: 18rem;
+    margin-top: -2.5rem;
+    font-size: 22px;
+    height: 55px;
+    width: 70px;
+    background: none;
+    border: none;
+    color: black;
+    cursor: pointer;
+  }
+
+  .dashboard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sidebar .flis {
+    display: none !important;
+  }
+  hr {
+    display: none;
+  }
 }

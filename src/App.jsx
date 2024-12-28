@@ -10,7 +10,7 @@ import SignInPage from './component/SignInPage'
 function App() {
   return (
     <Router>
-      <div className='d-flex' style={{ height: '100vh' }}>
+      <div className='d-flex'>
         {/* Sidebar */}
         <Sidebar />
 

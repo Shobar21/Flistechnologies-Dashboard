@@ -55,3 +55,43 @@
   width: 600px !important; /* Set desired width */
   margin: auto; /* Center the modal */
 }
+@media (max-width: 768px) {
+  .row-project {
+    margin-left: -2rem;
+    margin-top: 0.5rem !important;
+    gap: 2rem;
+    max-width: 130%;
+    height: 50px;
+    width: 430px;
+  }
+  .col-project {
+    flex: 1 1 calc(20% - 0.5rem) !important;
+    max-width: calc(20% - 0.5rem) !important;
+  }
+  .cardes {
+    width: 100px !important;
+    height: 35px;
+  }
+  .cals {
+    margin-top: -3rem;
+    width: 40px !important;
+    height: 12px;
+    background-color: #f4f7fe;
+    font-size: 5px !important;
+    margin-left: 2.5rem !important;
+  }
+  .proj-add {
+    font-size: 8px !important;
+    margin-top: -1.5rem;
+  }
+  .button {
+    width: 18px !important;
+    height: 14px;
+    margin-left: 4.8rem;
+    margin-top: -4.5rem;
+    /* not set top */
+  }
+  #proj-ad {
+    display: none;
+  }
+}

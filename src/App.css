@@ -10,3 +10,20 @@ body,
 html {
   overflow-x: hidden; /* Prevent horizontal scrolling */
 }
+
+/* Responsive layout for mobile */
+@media (max-width: 768px) {
+  .d-flex {
+    flex-direction: column; /* Stack items in a column */
+  }
+
+  .sidebar {
+    width: 100%; /* Sidebar takes full width */
+    height: auto; /* Adjust height */
+  }
+
+  .dash {
+    margin-left: 0; /* Remove offset for mobile */
+    padding: 10px; /* Adjust padding */
+  }
+}

@@ -4,7 +4,7 @@ import { Container, Row, Col, Card, Button, Modal, Form } from 'react-bootstrap'
 import calendar from '../imgs/calendar_today.png'
 import time from '../imgs/Icon.png'
 import projects from '../imgs/Icon (2).png'
-import products from '../imgs/Vector (7).png'
+import products from '../imgs/project.png'
 import '../css/Project.css'
 import ProjectImg from './ProjectImg'
 
@@ -34,7 +34,7 @@ function Project() {
           <h2 className='main-dash'>Projects</h2>
         </Col>
         <Col className='text-end'>
-          <img src={avtar} alt='User' className='rounded-circle' />
+          <img src={avtar} alt='User' className='rounded-circle avtar' />
         </Col>
       </Row>
 
@@ -43,12 +43,13 @@ function Project() {
           <Card className='p-3 cardes'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={time} alt='time' />
+                <img src={time} alt='time' className='small-icons' />
               </div>
               <div className='info'>
                 <h5 className='dash-h5'>Views</h5>
                 <h3 className='dash-h3'>200+</h3>
                 <h6
+                  className='h6-span'
                   style={{
                     color: '#05CD99',
                     fontSize: '12px',
@@ -62,6 +63,7 @@ function Project() {
                 <img
                   src={calendar}
                   alt='calendar'
+                  className='small-icons'
                   style={{ marginLeft: '0.1rem' }}
                 />{' '}
                 This month
@@ -73,20 +75,20 @@ function Project() {
           <Card className='p-3 cardes'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={projects} alt='projects' />
+                <img src={projects} alt='projects' className='small-icons' />
               </div>
               <div className='info'>
-                <h5 className='dash-h5'>Total Projects</h5>
+                <h5 className='dash-h5 '>Total Projects</h5>
                 <h3 className='dash-h3'>60</h3>
               </div>
             </div>
           </Card>
         </Col>
-        <Col className='col-project'>
+        <Col className='col-project' id='proj-ad'>
           <Card className='p-3 cardes'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={products} alt='products' />
+                <img src={products} alt='products' className='small-icons' />
               </div>
               <div className='info-product d-flex'>
                 <h5
@@ -95,6 +97,7 @@ function Project() {
                     fontSize: '14px',
                     fontWeight: '700',
                   }}
+                  className='proj-add'
                 >
                   Add Projects
                 </h5>

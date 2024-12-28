@@ -160,7 +160,7 @@ function Dashboard() {
           <p className='page-dash'>Pages / Dashboard</p>
           <h2 className='main-dash'>Main Dashboard</h2>
         </Col>
-        <Col className='text-end'>
+        <Col className='avtar text-end'>
           <img src={avtar} alt='User' className='rounded-circle' />
         </Col>
       </Row>
@@ -171,7 +171,7 @@ function Dashboard() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={time} alt='time' />
+                <img src={time} alt='time' className='small-icons' />
               </div>
               <div className='info'>
                 <h5 className='dash-h5'>All Time Earnings</h5>
@@ -184,7 +184,7 @@ function Dashboard() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={month} alt='month' />
+                <img src={month} alt='month' className='small-icons' />
               </div>
               <div className='info'>
                 <h5 className='dash-h5'>Earnings This Month</h5>
@@ -197,9 +197,10 @@ function Dashboard() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='info'>
-                <h5 className='dash-h5'>Sales</h5>
-                <h3 className='dash-h3'>$574.34</h3>
+                <h5 className='dash-h5 dollar'>Sales</h5>
+                <h3 className='dash-h3 sales'>$574.34</h3>
                 <h6
+                  className='h6-span'
                   style={{
                     color: '#A3AED0',
                     fontSize: '12px',
@@ -217,7 +218,7 @@ function Dashboard() {
           <Card className='p-3 cards'>
             <div className='details d-flex'>
               <div className='circle'>
-                <img src={projects} alt='projects' />
+                <img src={projects} alt='projects' className='time-icon' />
               </div>
               <div className='info'>
                 <h5 className='dash-h5'>Total Projects</h5>
@@ -229,7 +230,7 @@ function Dashboard() {
       </Row>
 
       {/* Main Content */}
-      <Row>
+      <Row className='row-chart'>
         <Col md={8}>
           <Card className='p-4 chart-card'>
             <div className='calender-div d-flex '>
@@ -238,6 +239,7 @@ function Dashboard() {
                   src={calendar}
                   alt='calendar'
                   style={{ marginLeft: '0.5rem' }}
+                  className='small-icons'
                 />{' '}
                 This month
               </div>
@@ -262,7 +264,7 @@ function Dashboard() {
                 </h6>
                 <h5
                   style={{ color: '#05CD99', fontWeight: 'bold' }}
-                  className='mt-2'
+                  className='mt-2 track'
                 >
                   <img src={check} alt='check' /> On track
                 </h5>
@@ -290,6 +292,7 @@ function Dashboard() {
             <Row>
               <Col>
                 <h5
+                  className='traffic-h5'
                   style={{
                     color: '#A3AED0',
                     fontSize: '15px',
@@ -308,7 +311,7 @@ function Dashboard() {
             </Row>
             <div className='visitors d-flex'>
               <h1
-                className='mt-2'
+                className='mt-2 h1-105'
                 style={{
                   color: '#2b3674',
                   fontSize: '34px',
@@ -318,6 +321,7 @@ function Dashboard() {
                 105
               </h1>
               <p
+                className='vist'
                 style={{
                   color: '#A3AED0',
                   fontSize: '15px',
@@ -329,7 +333,10 @@ function Dashboard() {
                 Visitors
               </p>
             </div>
-            <div style={{ width: '100%', height: '180px' }}>
+            <div
+              style={{ width: '100%', height: '180px' }}
+              className='bar-chart'
+            >
               <Bar data={info} options={optionbar} height={130} />
             </div>
           </Card>
@@ -338,7 +345,11 @@ function Dashboard() {
 
       {/* Quick Actions and Table */}
       <Row className='mt-4 tb-row' style={{ backgroundColor: '#f9f9ff' }}>
-        <Col md={6} className='bg-white' style={{ marginLeft: '1.2rem' }}>
+        <Col
+          md={6}
+          className='bg-white tb-col'
+          style={{ marginLeft: '1.2rem' }}
+        >
           <div>
             <h5
               style={{
@@ -348,6 +359,7 @@ function Dashboard() {
                 marginTop: '1rem',
                 marginLeft: '1rem',
               }}
+              className='quick-act'
             >
               Quick Actions
             </h5>
@@ -355,10 +367,10 @@ function Dashboard() {
           <Card className='p-2 mb-3 mt-5 main-card'>
             <Row className='align-items-center'>
               <Col xs={2}>
-                <img src={project} alt='Add Project' />
+                <img src={project} alt='Add Project' className='card-icon' />
               </Col>
               <Col>
-                <h6 className='mb-0' style={{ color: '#2B3674' }}>
+                <h6 className='mb-0 add' style={{ color: '#2B3674' }}>
                   Add Project
                 </h6>
               </Col>
@@ -372,10 +384,10 @@ function Dashboard() {
           <Card className='p-2 main-card'>
             <Row className='align-items-center'>
               <Col xs={2}>
-                <img src={product} alt='Add Product' />
+                <img src={product} alt='Add Product' className='card-icon' />
               </Col>
               <Col>
-                <h6 className='mb-0' style={{ color: '#2B3674' }}>
+                <h6 className='mb-0 add' style={{ color: '#2B3674' }}>
                   Add Product
                 </h6>
               </Col>
@@ -391,6 +403,7 @@ function Dashboard() {
           <Card className='p-4 table-card'>
             <div>
               <h5
+                className='contact-table'
                 style={{
                   color: '#2B3674',
                   fontSize: '32px',
@@ -400,11 +413,11 @@ function Dashboard() {
                 Contact Table
               </h5>
               <div className='rect'>
-                <img src={manu} alt='manu ' />
+                <img src={manu} alt='manu ' className='menu' />
               </div>
             </div>
             <Table bordered className='custom-table '>
-              <thead>
+              <thead className='t-heading'>
                 <tr>
                   <th>Name</th>
                   <th>Topic</th>
@@ -412,27 +425,27 @@ function Dashboard() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr className='t-body'>
                   <td>Jason Frank</td>
                   <td>New Project Inquiry</td>
                   <td>abc@gmail.com</td>
                 </tr>
-                <tr>
+                <tr className='t-body'>
                   <td>Davis Hendrix</td>
                   <td>Technical Support</td>
                   <td>abc@gmail.com</td>
                 </tr>
-                <tr>
+                <tr className='t-body'>
                   <td>Michael Blue</td>
                   <td>Sales Query</td>
                   <td>michael@domain.com</td>
                 </tr>
-                <tr>
+                <tr className='t-body'>
                   <td>Sarah Lee</td>
                   <td>Partnership Offer</td>
                   <td>sarah@domain.com</td>
                 </tr>
-                <tr>
+                <tr className='t-body'>
                   <td>David Chen</td>
                   <td>Customer Feedback</td>
                   <td>david@domain.com</td>
