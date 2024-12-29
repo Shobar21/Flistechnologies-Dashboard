@@ -64,3 +64,54 @@
   align-items: center;
   justify-content: space-between;
 }
+
+@media (max-width: 768px) {
+  .product-h5 {
+    margin-top: -1.8rem;
+    margin-left: 0.66rem;
+    font-size: 5.8px;
+    width: 56px;
+    font-weight: 700;
+  }
+  .product-h3 {
+    margin-left: 0.8rem;
+    margin-top: -0.5rem;
+    font-size: 8px;
+    width: 70px;
+  }
+  .small-icons {
+    width: 10px;
+    height: 10px;
+  }
+  .row-product {
+    margin-left: -2rem;
+    margin-top: 0.5rem !important;
+    gap: 1.5rem;
+    max-width: 130%;
+    height: 50px;
+    width: 430px;
+  }
+  .col-product {
+    flex: 1 1 calc(20% - 0.5rem); /* Keep 4 items per row */
+    max-width: calc(20% - 0.5rem);
+  }
+  .product-sale {
+    display: flex;
+    flex-direction: row;
+  }
+  .solds {
+    margin-left: -0.5rem;
+    margin-top: -0.8rem;
+  }
+  .numb {
+    margin-left: -0.5rem;
+  }
+  .cal {
+    margin-top: -0.8rem;
+    width: 56px !important;
+    height: 12px;
+    background-color: #f4f7fe;
+    font-size: 5px !important;
+    margin-left: 2rem !important;
+  }
+}
