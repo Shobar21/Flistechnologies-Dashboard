@@ -71,8 +71,7 @@
   border-bottom-left-radius: 8px; /* Rounded corners (optional) */
   border-bottom-right-radius: 8px; /* Rounded corners (optional) */
 }
-.editmodal {
-}
+
 @media (max-width: 768px) {
   .productModel {
     width: 405px;
