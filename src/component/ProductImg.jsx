@@ -427,7 +427,7 @@ function ProductImg() {
                       style={{
                         width: '170px',
                         marginLeft: '7rem',
-                        marginTop: '-6rem',
+                        marginTop: '-5rem',
                       }}
                     >
                       <Form.Control
