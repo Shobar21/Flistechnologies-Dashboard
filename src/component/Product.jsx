@@ -9,6 +9,16 @@ import projects from '../imgs/Icon (2).png'
 import products from '../imgs/Vector (7).png'
 import '../css/Product.css'
 import ProductImg from './ProductImg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faEdit,
+  faTrash,
+  faPen,
+  faImage,
+  faCloudUploadAlt,
+  faUser,
+  faStar,
+} from '@fortawesome/free-solid-svg-icons'
 
 function Product() {
   const [showModal, setShowModal] = useState(false)
@@ -232,6 +242,64 @@ function Product() {
                 style={{ border: '2px solid #c78fdf' }}
               />
             </Form.Group>
+            <Form.Group controlId='formFeedback' className='mb-3 w-75'>
+              <Form.Control
+                as='textarea'
+                rows={3}
+                placeholder='Add Feedback...'
+                style={{ border: '2px solid #c78fdf' }}
+              />
+            </Form.Group>
+            {/* Profile Section */}
+            <div className='d-flex justify-content-space mb-4'>
+              <div
+                style={{
+                  width: '100px',
+                  height: '100px',
+                  backgroundColor: '#EAEAEA',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginLeft: '1.5rem',
+                  marginTop: '1rem',
+                }}
+              >
+                <FontAwesomeIcon icon={faUser} size='lg' />
+              </div>
+              <div
+                style={{
+                  flex: 1,
+                  width: '160px',
+                  marginLeft: '4rem',
+                  marginTop: '1rem',
+                }}
+              >
+                <input
+                  type='text'
+                  placeholder='Add Name'
+                  className='form-control mb-2'
+                  style={{ border: '2px solid #c78fdf' }}
+                />
+                <input
+                  type='text'
+                  placeholder='Add Designation'
+                  className='form-control'
+                  style={{ border: '2px solid #c78fdf' }}
+                />
+              </div>
+            </div>
+
+            {/* Star Rating */}
+            <div className='text-center mb-4' style={{ width: '150px' }}>
+              {[...Array(5)].map((_, index) => (
+                <FontAwesomeIcon
+                  key={index}
+                  icon={faStar}
+                  style={{ color: '#DDD', cursor: 'pointer' }}
+                />
+              ))}
+            </div>
             <Button className='mt-3' style={{ width: '100px', height: '40px' }}>
               Done
             </Button>

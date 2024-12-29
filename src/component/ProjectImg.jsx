@@ -472,7 +472,7 @@ function ProjectImg() {
               >
                 <FontAwesomeIcon
                   icon={faImage}
-                  style={{ backgroundColor: '#982fc5' }}
+                  style={{ color: '#982fc5' }}
                   className='me-1'
                 />
                 Change Image

@@ -98,6 +98,7 @@ function ProductImg() {
     console.log('Closing Mobile Modal') // Debugging log
     setShowMobileModal(false) // Update the state to hide the modal
   }
+  console.log(editData.image)
   return (
     <Container className='productModel'>
       <div>
@@ -202,7 +203,7 @@ function ProductImg() {
                     <div
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '155px', // Matches the image width
+                        width: '155px',
                         margin: '0 auto',
                       }}
                     >
@@ -674,7 +675,7 @@ function ProductImg() {
               >
                 <FontAwesomeIcon
                   icon={faImage}
-                  style={{ backgroundColor: '#982fc5' }}
+                  style={{ color: '#982fc5' }}
                   className='me-1'
                 />
                 Change Image
@@ -735,10 +736,139 @@ function ProductImg() {
                 <FontAwesomeIcon icon={faPen} />
               </Button>
             </div>
+            {/* feedback */}
+            <div className='mb-3 position-relative'>
+              <textarea
+                className='form-control'
+                placeholder='Feedback'
+                rows={5}
+                defaultValue='Lorem ipsum dolor sit amet consectetur. Vitae ut fringilla egestas consectetur nunc tincidunt.'
+                readOnly={!isEditable.feedback}
+                style={{ border: '2px solid #c78fdf' }}
+              ></textarea>
+              <Button
+                onClick={() => handleFieldEdit('feedback')}
+                className='input-edit-button'
+                style={{ marginTop: '3rem' }}
+              >
+                <FontAwesomeIcon icon={faPen} />
+              </Button>
+            </div>
+
+            {/* Circle Image Container + Name/Designation */}
+            <div className='d-flex  mb-3'>
+              <div
+                className='me-3'
+                style={{
+                  width: '150px',
+                  height: '150px',
+                  display: 'flex',
+                  position: 'relative', // For correct positioning of the icon
+                  marginLeft: '2rem',
+                  marginTop: '1rem',
+                }}
+              >
+                <img
+                  src={selectedImage.img}
+                  alt='Edit'
+                  style={{
+                    width: '100px',
+                    height: '100px',
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                    opacity: 0.3,
+                    border: '1px solid #c78fdf',
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faCloudUploadAlt}
+                  size='2.1x'
+                  style={{
+                    position: 'absolute',
+                    marginLeft: '2.5rem',
+                    marginTop: '2.5rem',
+                  }}
+                />
+              </div>
+
+              <div className='flex-grow-1'>
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editName'
+                  style={{
+                    width: '230px',
+                    marginLeft: '3rem',
+                    marginTop: '1rem',
+                    border: '2px solid #c78fdf',
+                  }}
+                >
+                  <Form.Control
+                    type='text'
+                    defaultValue={editData.name}
+                    placeholder='Enter Name'
+                  />
+                  <Button
+                    variant='link'
+                    className='position-absolute'
+                    style={{
+                      top: '8px',
+                      right: '10px',
+                      color: '#fcfdff',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+                <Form.Group
+                  className='mb-3 position-relative'
+                  controlId='editDesignation'
+                  style={{
+                    width: '230px',
+                    marginLeft: '3rem',
+                    marginTop: '0rem',
+                    border: '2px solid #c78fdf',
+                  }}
+                >
+                  <Form.Control
+                    type='text'
+                    defaultValue={editData.designation}
+                    placeholder='Enter Designation'
+                  />
+                  <Button
+                    className='position-absolute'
+                    style={{
+                      top: '10px',
+                      right: '10px',
+                      color: '#fcfdff',
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </Button>
+                </Form.Group>
+              </div>
+            </div>
+
+            {/* Star Ratings */}
+            <Form.Group className='mb-3' controlId='editStars'>
+              <div style={{ marginLeft: '10rem' }}>
+                {[...Array(5)].map((_, i) => (
+                  <span
+                    key={i}
+                    style={{
+                      color: '#FFD700',
+                      fontSize: '20px',
+                    }}
+                  >
+                    ★
+                  </span>
+                ))}
+              </div>
+            </Form.Group>
+
             <Button
               variant='primary'
               onClick={handleClose}
-              style={{ width: '100px', height: '40px', marginLeft: '12rem' }}
+              style={{ width: '100px', height: '40px', marginLeft: '10rem' }}
             >
               Done
             </Button>
