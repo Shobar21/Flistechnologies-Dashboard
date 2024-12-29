@@ -177,7 +177,7 @@ function ProjectImg() {
                   md={6}
                   xs={6}
                   className='text-center'
-                  style={{ marginLeft: '0rem' }}
+                  style={{ marginLeft: '-0.8rem' }}
                 >
                   <div
                     className='image-container mt-5'
@@ -189,7 +189,7 @@ function ProjectImg() {
                       fluid
                       style={{
                         cursor: 'pointer',
-                        width: '134.71px',
+                        width: '138.71px',
                         height: '142px',
                         objectFit: 'cover',
                       }}
@@ -198,7 +198,7 @@ function ProjectImg() {
                     <div
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '155px', // Matches the image width
+                        width: '150px', // Matches the image width
                         margin: '0 auto', // Centers the buttons within the container
                       }}
                     >
@@ -207,7 +207,7 @@ function ProjectImg() {
                         style={{
                           color: '#fff',
                           width: '43%', // Ensures buttons are slightly spaced
-                          height: '34px',
+                          height: '36px',
                         }}
                       >
                         <FontAwesomeIcon
@@ -230,8 +230,8 @@ function ProjectImg() {
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '42%',
-                          height: '34px',
+                          width: '43%',
+                          height: '36px',
                         }}
                       >
                         <FontAwesomeIcon icon={faTrash} className='me-1' />
