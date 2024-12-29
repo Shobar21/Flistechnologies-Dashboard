@@ -73,6 +73,9 @@
 }
 
 @media (max-width: 768px) {
+  .productimg {
+    width: 100%;
+  }
   .Products-heading {
     font-size: 18.11px;
     font-weight: 700;

@@ -29,6 +29,9 @@
 }
 
 @media (max-width: 768px) {
+  .project-container {
+    width: 100%;
+  }
   /* Sidebar styles for mobile */
   .sidebar {
     transform: translateX(100%); /* Hidden sidebar */

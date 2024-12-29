@@ -67,6 +67,9 @@
 
 @media (max-width: 768px) {
   .product-h5 {
+    .product-container {
+      width: 100%;
+    }
     margin-top: -1.8rem;
     margin-left: 0.66rem;
     font-size: 5.8px;

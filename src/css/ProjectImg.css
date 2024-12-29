@@ -35,6 +35,9 @@
 }
 
 @media (max-width: 768px) {
+  .projectimg {
+    width: 100%;
+  }
   .btn-project {
     width: 25px;
     height: 25px;

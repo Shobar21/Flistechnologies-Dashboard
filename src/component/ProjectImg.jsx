@@ -159,7 +159,7 @@ function ProjectImg() {
       </Row>
 
       {/* Mobile Product Layout (Only img1 and img2, 12 images total, 6 rows) */}
-      <Row className='d-block d-md-none my-4 justify-content-center'>
+      <Row className='d-block d-md-none my-4 justify-content-center projectimg'>
         <Container>
           <Button
             variant='primary'

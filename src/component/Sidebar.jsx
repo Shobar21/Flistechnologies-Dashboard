@@ -14,7 +14,7 @@ function Sidebar() {
   }
 
   return (
-    <>
+    <div className='sidebar-container'>
       {/* Navbar for mobile */}
       <div className='mobile-navbar d-flex justify-content-between align-items-center p-3'>
         <h3 className='flis mb-0'>Flistechnologies</h3>
@@ -71,7 +71,7 @@ function Sidebar() {
           </NavLink>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

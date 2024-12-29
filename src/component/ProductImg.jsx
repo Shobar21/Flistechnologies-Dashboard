@@ -162,7 +162,7 @@ function ProductImg() {
       </Row>
 
       {/* responsive part */}
-      <Row className='d-block d-md-none my-4 justify-content-center'>
+      <Row className='d-block d-md-none my-4 justify-content-center productimg'>
         <Container>
           <Button
             variant='primary'
@@ -181,7 +181,7 @@ function ProductImg() {
                   md={6}
                   xs={6}
                   className='text-center'
-                  style={{ marginLeft: '-0.8rem' }}
+                  style={{ marginLeft: '0rem' }}
                 >
                   <div
                     className='image-container mt-5'
@@ -193,7 +193,7 @@ function ProductImg() {
                       fluid
                       style={{
                         cursor: 'pointer',
-                        width: '138.71px',
+                        width: '134.71px',
                         height: '142px',
                         objectFit: 'cover',
                       }}
@@ -202,7 +202,7 @@ function ProductImg() {
                     <div
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '150px', // Matches the image width
+                        width: '155px', // Matches the image width
                         margin: '0 auto',
                       }}
                     >
@@ -211,8 +211,7 @@ function ProductImg() {
                         style={{
                           color: '#fff',
                           width: '43%',
-                          height: '36px',
-                          padding: '0px',
+                          height: '34px',
                         }}
                         onClick={() =>
                           handleOpenEditModal({
@@ -233,7 +232,7 @@ function ProductImg() {
                         style={{
                           color: '#fff',
                           width: '42%',
-                          height: '36px',
+                          height: '34px',
                         }}
                       >
                         <FontAwesomeIcon icon={faTrash} className='me-1' />
