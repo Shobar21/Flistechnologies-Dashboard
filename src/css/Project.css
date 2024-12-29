@@ -55,6 +55,7 @@
   width: 600px !important; /* Set desired width */
   margin: auto; /* Center the modal */
 }
+
 @media (max-width: 768px) {
   .row-project {
     margin-left: -2rem;

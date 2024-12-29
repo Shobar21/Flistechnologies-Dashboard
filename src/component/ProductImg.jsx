@@ -255,14 +255,15 @@ function ProductImg() {
         >
           <div className='d-flex align-items-center mb-4'>
             <button
-              className='clickbutton btn p-0'
+              className='clickbutton  p-0'
               onClick={handleCloseEditModal}
               style={{
-                fontSize: '1.8rem',
+                fontSize: '1.6rem',
                 color: '#333',
                 marginLeft: '-22rem',
                 marginTop: '1rem',
                 backgroundColor: '#fff !important',
+                border: 'none',
               }}
             >
               ←
@@ -513,14 +514,15 @@ function ProductImg() {
               {/* Close Button */}
               <div className='d-flex align-items-center mb-4'>
                 <button
-                  className='clickbutton btn p-0'
+                  className='clickbutton  p-0'
                   onClick={() => setShowMobileModal(false)}
                   style={{
-                    fontSize: '1.8rem',
+                    fontSize: '1.6rem',
                     color: '#333',
-                    marginLeft: '-22rem',
+                    marginLeft: '-23rem',
                     marginTop: '-1rem',
                     backgroundColor: '#fff !important',
+                    border: 'none',
                   }}
                 >
                   ←
