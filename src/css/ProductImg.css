@@ -73,9 +73,6 @@
 }
 
 @media (max-width: 768px) {
-  .productModel {
-    width: 405px;
-  }
   .Products-heading {
     font-size: 18.11px;
     font-weight: 700;
@@ -90,7 +87,6 @@
     height: 2px;
     background: linear-gradient(#5550bc, #57007b);
   }
-  /* Apply styles for mobile screens and smaller tablets */
   .image-container {
     position: relative;
     width: 100%;

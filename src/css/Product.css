@@ -114,4 +114,7 @@
     font-size: 5px !important;
     margin-left: 2rem !important;
   }
+  .project-add {
+    display: none;
+  }
 }
