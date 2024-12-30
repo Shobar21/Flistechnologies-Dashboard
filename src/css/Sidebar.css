@@ -1,8 +1,3 @@
-.dashboard {
-  list-style: none;
-  text-decoration: none;
-}
-
 .flis {
   font-size: 24px;
   font-weight: 800;
@@ -26,6 +21,26 @@
 
 .mobile-navbar {
   display: none !important;
+}
+.navlinks {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+}
+.navlinks.active {
+  color: #57007b !important; /* Purple for active link */
+  font-weight: bold !important;
+}
+.icons {
+  filter: grayscale(100%); /* Default grayscale */
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+}
+
+/* Change img color when the link is active */
+.navlinks.active .icons {
+  filter: grayscale(0%) brightness(0) invert(33%) sepia(91%) saturate(745%)
+    hue-rotate(250deg) brightness(95%) contrast(86%);
 }
 
 @media (max-width: 768px) {
@@ -89,7 +104,7 @@
     cursor: pointer;
   }
 
-  .dashboard {
+  .navlinks {
     display: flex;
     flex-direction: row;
     align-items: center;

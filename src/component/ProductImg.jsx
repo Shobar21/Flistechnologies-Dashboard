@@ -98,6 +98,17 @@ function ProductImg() {
     console.log('Closing Mobile Modal') // Debugging log
     setShowMobileModal(false) // Update the state to hide the modal
   }
+  const [imageSrc, setImageSrc] = useState(selectedImage) // Initial state is null
+  const handleImageChange = (event) => {
+    const file = event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImageSrc(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
   console.log(editData.image)
   return (
     <Container className='productModel'>
@@ -277,8 +288,11 @@ function ProductImg() {
                 className='mb-3 position-relative'
                 style={{
                   width: '80%',
+                  maxWidth: '300px', // Limit max width for small screens
                   height: '250px',
                   border: '1px solid #ddd',
+                  margin: 'auto', // Center align for mobile
+                  position: 'relative',
                 }}
               >
                 <img
@@ -289,12 +303,28 @@ function ProductImg() {
                     height: '100%',
                     objectFit: 'cover',
                     opacity: 0.4,
+                    borderRadius: '5px',
                   }}
                 />
+                <input
+                  type='file'
+                  id='imageUpload'
+                  accept='image/*'
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                />
                 <FontAwesomeIcon
+                  onClick={() => document.getElementById('imageUpload').click()}
                   icon={faCloudUploadAlt}
                   size='2x'
-                  style={{ marginLeft: '-9rem' }}
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    color: '#c78fdf',
+                    cursor: 'pointer',
+                  }}
                 />
               </div>
 
@@ -307,9 +337,10 @@ function ProductImg() {
                   <Form.Control
                     type='text'
                     defaultValue={editData.title}
+                    style={{ border: '2px solid #c78fdf' }}
                     placeholder='Enter Title'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -321,7 +352,7 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 <Form.Group
@@ -331,9 +362,10 @@ function ProductImg() {
                   <Form.Control
                     type='url'
                     defaultValue={editData.url}
+                    style={{ border: '2px solid #c78fdf' }}
                     placeholder='Enter URL'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -345,7 +377,7 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 <Form.Group
@@ -356,9 +388,10 @@ function ProductImg() {
                     as='textarea'
                     rows={4}
                     defaultValue={editData.description}
+                    style={{ border: '2px solid #c78fdf' }}
                     placeholder='Enter Description'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -370,7 +403,7 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 <Form.Group
@@ -381,9 +414,10 @@ function ProductImg() {
                     as='textarea'
                     rows={4}
                     defaultValue={editData.feedback}
+                    style={{ border: '2px solid #c78fdf' }}
                     placeholder='Enter Feedback'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -395,12 +429,22 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 {/* Circle Image Container + Name/Designation */}
                 <div className='d-flex  mb-3'>
-                  <div className='me-3'>
+                  <div
+                    className='me-3'
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      position: 'relative',
+                      width: 'fit-content',
+                    }}
+                  >
+                    {/* Profile Image */}
                     <img
                       src={editData.image}
                       alt='Edit'
@@ -409,14 +453,37 @@ function ProductImg() {
                         height: '80px',
                         borderRadius: '50%',
                         objectFit: 'cover',
-                        opacity: 0.3,
+                        opacity: 0.8,
                         border: '1px solid black',
                       }}
                     />
+
+                    {/* Hidden File Input */}
+                    <input
+                      type='file'
+                      id='imageUpload'
+                      accept='image/*' // Limit input to images for a better user experience
+                      style={{ display: 'none' }}
+                      onChange={handleImageChange}
+                    />
+
+                    {/* Upload Icon */}
                     <FontAwesomeIcon
+                      onClick={() =>
+                        document.getElementById('imageUpload').click()
+                      }
                       icon={faCloudUploadAlt}
-                      size='1.99x'
-                      style={{ marginLeft: '-3rem' }}
+                      size='lg' // Adjusted size for consistent appearance
+                      style={{
+                        marginLeft: '-4rem',
+                        marginTop: '-1rem',
+                        background: '#fff',
+                        borderRadius: '50%',
+                        transform: 'translate(50%, 50%)',
+                        color: '#c78fdf',
+                        boxShadow: '0px 2px 5px rgba(0, 0, 0, 0.2)',
+                        cursor: 'pointer',
+                      }}
                     />
                   </div>
 
@@ -433,9 +500,10 @@ function ProductImg() {
                       <Form.Control
                         type='text'
                         defaultValue={editData.name}
+                        style={{ border: '2px solid #c78fdf' }}
                         placeholder='Enter Name'
                       />
-                      <Button
+                      {/* <Button
                         variant='link'
                         className='position-absolute'
                         style={{
@@ -445,7 +513,7 @@ function ProductImg() {
                         }}
                       >
                         <FontAwesomeIcon icon={faEdit} />
-                      </Button>
+                      </Button> */}
                     </Form.Group>
                     <Form.Group
                       className='mb-3 position-relative'
@@ -458,9 +526,10 @@ function ProductImg() {
                       <Form.Control
                         type='text'
                         defaultValue={editData.designation}
+                        style={{ border: '2px solid #c78fdf' }}
                         placeholder='Enter Designation'
                       />
-                      <Button
+                      {/* <Button
                         className='position-absolute'
                         style={{
                           top: '10px',
@@ -469,7 +538,7 @@ function ProductImg() {
                         }}
                       >
                         <FontAwesomeIcon icon={faEdit} />
-                      </Button>
+                      </Button> */}
                     </Form.Group>
                   </div>
                 </div>
@@ -536,15 +605,30 @@ function ProductImg() {
                   style={{
                     width: '100%',
                     height: '150px',
-                    backgroundColor: '#EAEAEA',
+                    backgroundColor: '#636363',
                     borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
+                    position: 'relative',
                   }}
+                  onClick={() => document.getElementById('fileUpload').click()}
                 >
-                  <FontAwesomeIcon icon={faCloudUploadAlt} size='2x' />
+                  {/* Hidden File Input */}
+                  <input
+                    type='file'
+                    id='fileUpload'
+                    accept='image/*' // Restrict to image files
+                    style={{ display: 'none' }}
+                    onChange={handleImageChange} // Function to handle the uploaded image
+                  />
+                  {/* Upload Icon */}
+                  <FontAwesomeIcon
+                    icon={faCloudUploadAlt}
+                    size='2x'
+                    style={{ color: '#c78fdf' }}
+                  />
                 </div>
               </div>
 
@@ -589,10 +673,29 @@ function ProductImg() {
                     justifyContent: 'center',
                     marginLeft: '1.5rem',
                     marginTop: '0rem',
+                    position: 'relative',
+                    cursor: 'pointer',
                   }}
+                  onClick={() =>
+                    document.getElementById('circleFileUpload').click()
+                  }
                 >
-                  <FontAwesomeIcon icon={faUser} size='lg' />
+                  {/* Hidden File Input */}
+                  <input
+                    type='file'
+                    id='circleFileUpload'
+                    accept='image/*' // Restrict file selection to images
+                    style={{ display: 'none' }}
+                    onChange={handleImageChange} // Function to handle the uploaded file
+                  />
+                  {/* Upload Icon */}
+                  <FontAwesomeIcon
+                    icon={faCloudUploadAlt}
+                    size='1.99x'
+                    style={{ color: '#c78fdf' }}
+                  />
                 </div>
+
                 <div
                   style={{
                     flex: 1,
@@ -669,15 +772,25 @@ function ProductImg() {
                   opacity: 0.6,
                 }}
               />
+              {/* Hidden file input */}
+              <input
+                type='file'
+                id='imageUpload'
+                style={{ display: 'none' }}
+                onChange={handleImageChange}
+              />
+
+              {/* Button to trigger file input */}
               <Button
                 className='centered-button'
                 style={{ background: '#fff' }}
+                onClick={() => document.getElementById('imageUpload').click()}
               >
                 <FontAwesomeIcon
-                  icon={faImage}
-                  style={{ color: '#982fc5' }}
-                  className='me-1'
-                />
+                  icon={faCloudUploadAlt}
+                  size='1.99x'
+                  style={{ marginLeft: '0rem', color: '#c78fdf' }}
+                />{' '}
                 Change Image
               </Button>
             </div>
@@ -692,12 +805,12 @@ function ProductImg() {
                 readOnly={!isEditable.title}
                 style={{ border: '2px solid #c78fdf' }}
               />
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('title')}
                 className='input-edit-button'
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
 
             {/* URL Input with Edit Button Inside */}
@@ -710,12 +823,12 @@ function ProductImg() {
                 readOnly={!isEditable.url}
                 style={{ border: '2px solid #c78fdf' }}
               />
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('url')}
                 className='input-edit-button'
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
 
             {/* Description Textarea with Edit Button Inside */}
@@ -728,13 +841,13 @@ function ProductImg() {
                 readOnly={!isEditable.description}
                 style={{ border: '2px solid #c78fdf' }}
               ></textarea>
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('description')}
                 className='input-edit-button'
                 style={{ marginTop: '3rem' }}
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
             {/* feedback */}
             <div className='mb-3 position-relative'>
@@ -746,13 +859,13 @@ function ProductImg() {
                 readOnly={!isEditable.feedback}
                 style={{ border: '2px solid #c78fdf' }}
               ></textarea>
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('feedback')}
                 className='input-edit-button'
                 style={{ marginTop: '3rem' }}
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
 
             {/* Circle Image Container + Name/Designation */}
@@ -763,7 +876,7 @@ function ProductImg() {
                   width: '150px',
                   height: '150px',
                   display: 'flex',
-                  position: 'relative', // For correct positioning of the icon
+                  position: 'relative',
                   marginLeft: '2rem',
                   marginTop: '1rem',
                 }}
@@ -780,13 +893,23 @@ function ProductImg() {
                     border: '1px solid #c78fdf',
                   }}
                 />
+                {/* Hidden file input */}
+                <input
+                  type='file'
+                  id='imageUpload'
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                />
+
                 <FontAwesomeIcon
+                  onClick={() => document.getElementById('imageUpload').click()}
                   icon={faCloudUploadAlt}
                   size='2.1x'
                   style={{
                     position: 'absolute',
                     marginLeft: '2.5rem',
                     marginTop: '2.5rem',
+                    color: '#c78fdf',
                   }}
                 />
               </div>
@@ -807,7 +930,7 @@ function ProductImg() {
                     defaultValue={editData.name}
                     placeholder='Enter Name'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -817,7 +940,7 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
                 <Form.Group
                   className='mb-3 position-relative'
@@ -834,7 +957,7 @@ function ProductImg() {
                     defaultValue={editData.designation}
                     placeholder='Enter Designation'
                   />
-                  <Button
+                  {/* <Button
                     className='position-absolute'
                     style={{
                       top: '10px',
@@ -843,7 +966,7 @@ function ProductImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
               </div>
             </div>

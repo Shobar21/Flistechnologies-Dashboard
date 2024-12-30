@@ -5,6 +5,8 @@ import calendar from '../imgs/calendar_today.png'
 import time from '../imgs/Icon.png'
 import projects from '../imgs/Icon (2).png'
 import products from '../imgs/project.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons'
 import '../css/Project.css'
 import ProjectImg from './ProjectImg'
 
@@ -172,6 +174,11 @@ function Project() {
                       fontSize: '12px',
                     }}
                   >
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='2px'
+                      style={{ color: '#c78fdf' }}
+                    />{' '}
                     Upload Image
                     <input
                       type='file'

@@ -22,11 +22,11 @@ import {
 
 function Product() {
   const [showModal, setShowModal] = useState(false)
-  const [uploadedImage, setUploadedImage] = useState(null)
 
   const handleShow = () => setShowModal(true)
   const handleClose = () => setShowModal(false)
 
+  const [uploadedImage, setUploadedImage] = useState(null)
   const handleImageUpload = (event) => {
     const file = event.target.files[0]
     if (file) {
@@ -154,6 +154,7 @@ function Product() {
       <div className='productimg-container'>
         <ProductImg />
       </div>
+
       {/* Modal */}
       <Modal
         show={showModal}
@@ -209,6 +210,11 @@ function Product() {
                       fontSize: '12px',
                     }}
                   >
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='1.99x'
+                      style={{ marginLeft: '0rem', color: '#c78fdf' }}
+                    />{' '}
                     Upload Image
                     <input
                       type='file'
@@ -263,9 +269,55 @@ function Product() {
                   justifyContent: 'center',
                   marginLeft: '1.5rem',
                   marginTop: '1rem',
+                  position: 'relative',
+                  cursor: 'pointer',
                 }}
               >
-                <FontAwesomeIcon icon={faUser} size='lg' />
+                {uploadedImage ? (
+                  <img
+                    src={uploadedImage}
+                    alt='Uploaded'
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover', // Ensure the image fills the circle
+                      borderRadius: '50%', // Make the image circular
+                    }}
+                  />
+                ) : (
+                  <>
+                    {/* Hidden file input */}
+                    <input
+                      type='file'
+                      accept='image/*'
+                      onChange={handleImageUpload}
+                      id='file-upload'
+                      style={{
+                        position: 'absolute',
+                        opacity: 0,
+                        width: '100%',
+                        height: '100%',
+                        cursor: 'pointer',
+                      }}
+                    />
+                    {/* Label with FontAwesome icon */}
+                    <label
+                      htmlFor='file-upload'
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        cursor: 'pointer',
+                      }}
+                    >
+                      <FontAwesomeIcon
+                        icon={faCloudUploadAlt}
+                        size='1.9x'
+                        style={{ color: '#c78fdf' }}
+                      />
+                    </label>
+                  </>
+                )}
               </div>
               <div
                 style={{

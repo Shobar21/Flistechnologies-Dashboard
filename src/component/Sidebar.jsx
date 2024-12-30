@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import home from '../imgs/Vector.png'
+import home from '../imgs/Rectangle2804.png'
 import product from '../imgs/Vector (1).png'
 import project from '../imgs/Vector (2).png'
 import signin from '../imgs/Vector (3).png'
@@ -25,7 +25,6 @@ function Sidebar() {
 
       {/* Sidebar */}
       <div className={`bg-dark text-white sidebar ${isOpen ? 'open' : ''}`}>
-        {/* Close Button */}
         <button className='close-btn' onClick={toggleSidebar}>
           &times; {/* Close icon */}
         </button>
@@ -36,37 +35,67 @@ function Sidebar() {
         <div className='flex-column px-3 mt-5'>
           <NavLink
             to='/'
-            className='dashboard text-white mb-2 d-flex align-items-center'
+            className={({ isActive }) =>
+              `text-white mb-2 d-flex align-items-center navlinks ${
+                isActive ? 'active' : ''
+              }`
+            }
           >
-            <img src={home} alt='Dashboard' className='me-2' />
+            <img
+              src={home}
+              alt='Dashboard'
+              className='me-2 icons'
+              style={{
+                width: '18px',
+                height: '18px',
+                fontWeight: 'bold',
+                fontSize: '14px',
+              }}
+            />
             Dashboard
           </NavLink>
           <NavLink
             to='/product'
-            className='dashboard text-white d-flex align-items-center mt-3'
+            className={({ isActive }) =>
+              `text-white d-flex align-items-center mt-3 navlinks ${
+                isActive ? 'active' : ''
+              }`
+            }
           >
-            <img src={product} alt='Products' className='me-2' />
+            <img src={product} alt='Products' className='me-2 icons' />
             Products
           </NavLink>
           <NavLink
             to='/project'
-            className='dashboard text-white d-flex align-items-center mt-3'
+            className={({ isActive }) =>
+              `text-white d-flex align-items-center mt-3 navlinks ${
+                isActive ? 'active' : ''
+              }`
+            }
           >
-            <img src={project} alt='Projects' className='me-2' />
+            <img src={project} alt='Projects' className='me-2 icons' />
             Projects
           </NavLink>
           <NavLink
             to='/signin'
-            className='dashboard text-white d-flex align-items-center mt-3'
+            className={({ isActive }) =>
+              ` text-white d-flex align-items-center mt-3 navlinks ${
+                isActive ? 'active' : ''
+              }`
+            }
           >
-            <img src={signin} alt='Sign In' className='me-2' />
+            <img src={signin} alt='Sign In' className='me-2 icons' />
             Sign In
           </NavLink>
           <NavLink
-            to='/signin'
-            className='dashboard text-white d-flex align-items-center mt-3'
+            to='/signout'
+            className={({ isActive }) =>
+              ` text-white d-flex align-items-center mt-3 navlinks ${
+                isActive ? 'active' : ''
+              }`
+            }
           >
-            <img src={signin} alt='Sign Out' className='me-2' />
+            <img src={signin} alt='Sign Out' className='me-2 icons' />
             Sign Out
           </NavLink>
         </div>

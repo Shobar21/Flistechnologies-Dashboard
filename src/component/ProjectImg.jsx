@@ -98,6 +98,17 @@ function ProjectImg() {
     console.log('Closing Mobile Modal') // Debugging log
     setShowMobileModal(false) // Update the state to hide the modal
   }
+  const [imageSrc, setImageSrc] = useState(selectedImage) // Initial state is null
+  const handleImageChange = (event) => {
+    const file = event.target.files[0]
+    if (file) {
+      const reader = new FileReader()
+      reader.onloadend = () => {
+        setImageSrc(reader.result)
+      }
+      reader.readAsDataURL(file)
+    }
+  }
 
   return (
     <Container className='projectModel'>
@@ -276,22 +287,32 @@ function ProjectImg() {
                   style={{
                     width: '100%',
                     height: '150px',
-                    backgroundColor: '#000000A3',
+                    backgroundColor: '#636363',
                     borderRadius: '8px',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
                     cursor: 'pointer',
+                    position: 'relative',
                   }}
+                  onClick={() => document.getElementById('fileUpload').click()}
                 >
+                  {/* Hidden File Input */}
+                  <input
+                    type='file'
+                    id='fileUpload'
+                    accept='image/*' // Restrict to image files
+                    style={{ display: 'none' }}
+                    onChange={handleImageChange} // Function to handle the uploaded image
+                  />
+                  {/* Upload Icon */}
                   <FontAwesomeIcon
                     icon={faCloudUploadAlt}
                     size='2x'
-                    style={{ color: '#57007B' }}
+                    style={{ color: '#c78fdf' }}
                   />
                 </div>
               </div>
-
               {/* Input Fields */}
               <div className='mb-4'>
                 <input
@@ -346,8 +367,11 @@ function ProjectImg() {
                 className='mb-3 position-relative'
                 style={{
                   width: '80%',
+                  maxWidth: '300px', // Limit max width for small screens
                   height: '250px',
                   border: '1px solid #ddd',
+                  margin: 'auto', // Center align for mobile
+                  position: 'relative',
                 }}
               >
                 <img
@@ -358,12 +382,28 @@ function ProjectImg() {
                     height: '100%',
                     objectFit: 'cover',
                     opacity: 0.4,
+                    borderRadius: '5px',
                   }}
                 />
+                <input
+                  type='file'
+                  id='imageUpload'
+                  accept='image/*'
+                  style={{ display: 'none' }}
+                  onChange={handleImageChange}
+                />
                 <FontAwesomeIcon
+                  onClick={() => document.getElementById('imageUpload').click()}
                   icon={faCloudUploadAlt}
                   size='2x'
-                  style={{ marginLeft: '-10rem' }}
+                  style={{
+                    position: 'absolute',
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    color: '#c78fdf',
+                    cursor: 'pointer',
+                  }}
                 />
               </div>
 
@@ -378,7 +418,7 @@ function ProjectImg() {
                     defaultValue={editData.title}
                     placeholder='Enter Title'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -390,7 +430,7 @@ function ProjectImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 <Form.Group
@@ -403,7 +443,7 @@ function ProjectImg() {
                     defaultValue={editData.description}
                     placeholder='Enter Description'
                   />
-                  <Button
+                  {/* <Button
                     variant='link'
                     className='position-absolute'
                     style={{
@@ -415,7 +455,7 @@ function ProjectImg() {
                     }}
                   >
                     <FontAwesomeIcon icon={faEdit} />
-                  </Button>
+                  </Button> */}
                 </Form.Group>
 
                 {/* Done Button */}
@@ -466,15 +506,25 @@ function ProjectImg() {
                   opacity: 0.6,
                 }}
               />
+              {/* Hidden file input */}
+              <input
+                type='file'
+                id='imageUpload'
+                style={{ display: 'none' }}
+                onChange={handleImageChange}
+              />
+
+              {/* Button to trigger file input */}
               <Button
                 className='centered-button'
                 style={{ background: '#fff' }}
+                onClick={() => document.getElementById('imageUpload').click()}
               >
                 <FontAwesomeIcon
-                  icon={faImage}
-                  style={{ color: '#982fc5' }}
-                  className='me-1'
-                />
+                  icon={faCloudUploadAlt}
+                  size='1.99x'
+                  style={{ marginLeft: '0rem', color: '#c78fdf' }}
+                />{' '}
                 Change Image
               </Button>
             </div>
@@ -489,12 +539,12 @@ function ProjectImg() {
                 readOnly={!isEditable.title}
                 style={{ border: '2px solid #c78fdf' }}
               />
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('title')}
                 className='input-edit-button'
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
 
             {/* Description Textarea with Edit Button Inside */}
@@ -507,18 +557,18 @@ function ProjectImg() {
                 readOnly={!isEditable.description}
                 style={{ border: '2px solid #c78fdf' }}
               ></textarea>
-              <Button
+              {/* <Button
                 onClick={() => handleFieldEdit('description')}
                 className='input-edit-button'
                 style={{ marginTop: '3rem' }}
               >
                 <FontAwesomeIcon icon={faPen} />
-              </Button>
+              </Button> */}
             </div>
             <Button
               variant='primary'
               onClick={handleClose}
-              style={{ width: '100px', height: '40px', marginLeft: '12rem' }}
+              style={{ width: '100px', height: '40px', marginLeft: '10rem' }}
             >
               Done
             </Button>
