@@ -297,19 +297,32 @@ function ProjectImg() {
                   }}
                   onClick={() => document.getElementById('fileUpload').click()}
                 >
+                  {/* Display uploaded image or placeholder */}
+                  {imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt='Uploaded'
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='1.99x'
+                      style={{ color: '#c78fdf' }}
+                    />
+                  )}
+
                   {/* Hidden File Input */}
                   <input
                     type='file'
                     id='fileUpload'
                     accept='image/*' // Restrict to image files
                     style={{ display: 'none' }}
-                    onChange={handleImageChange} // Function to handle the uploaded image
-                  />
-                  {/* Upload Icon */}
-                  <FontAwesomeIcon
-                    icon={faCloudUploadAlt}
-                    size='2x'
-                    style={{ color: '#c78fdf' }}
+                    onChange={handleImageChange}
                   />
                 </div>
               </div>

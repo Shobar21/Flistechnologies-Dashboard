@@ -610,7 +610,6 @@ function ProductImg() {
                 </button>
               </div>
 
-              {/* Upload Image Section */}
               <div className='text-center mb-4'>
                 <div
                   style={{
@@ -623,9 +622,29 @@ function ProductImg() {
                     justifyContent: 'center',
                     cursor: 'pointer',
                     position: 'relative',
+                    overflow: 'hidden',
                   }}
                   onClick={() => document.getElementById('fileUpload').click()}
                 >
+                  {/* Display uploaded image or placeholder */}
+                  {imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt='Uploaded'
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='2x'
+                      style={{ color: '#c78fdf' }}
+                    />
+                  )}
+
                   {/* Hidden File Input */}
                   <input
                     type='file'
@@ -633,12 +652,6 @@ function ProductImg() {
                     accept='image/*' // Restrict to image files
                     style={{ display: 'none' }}
                     onChange={handleImageChange}
-                  />
-                  {/* Upload Icon */}
-                  <FontAwesomeIcon
-                    icon={faCloudUploadAlt}
-                    size='2x'
-                    style={{ color: '#c78fdf' }}
                   />
                 </div>
               </div>
@@ -687,23 +700,34 @@ function ProductImg() {
                     position: 'relative',
                     cursor: 'pointer',
                   }}
-                  onClick={() =>
-                    document.getElementById('circleFileUpload').click()
-                  }
+                  onClick={() => document.getElementById('fileUpload').click()}
                 >
+                  {/* Display uploaded image or placeholder */}
+                  {imageSrc ? (
+                    <img
+                      src={imageSrc}
+                      alt='Uploaded'
+                      style={{
+                        width: '80px',
+                        height: '80px',
+                        objectFit: 'cover',
+                      }}
+                    />
+                  ) : (
+                    <FontAwesomeIcon
+                      icon={faCloudUploadAlt}
+                      size='1.99x'
+                      style={{ color: '#c78fdf' }}
+                    />
+                  )}
+
                   {/* Hidden File Input */}
                   <input
                     type='file'
-                    id='circleFileUpload'
-                    accept='image/*'
+                    id='fileUpload'
+                    accept='image/*' // Restrict to image files
                     style={{ display: 'none' }}
                     onChange={handleImageChange}
-                  />
-                  {/* Upload Icon */}
-                  <FontAwesomeIcon
-                    icon={faCloudUploadAlt}
-                    size='1.99x'
-                    style={{ color: '#c78fdf' }}
                   />
                 </div>
 
