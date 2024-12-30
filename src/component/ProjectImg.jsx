@@ -261,6 +261,13 @@ function ProjectImg() {
           <Modal
             show={showMobileModal}
             onHide={() => setShowMobileModal(false)}
+            fullscreen
+            style={{
+              margin: 0,
+              padding: 0,
+              height: '100vh', // Use viewport height
+              width: '100vw', // Use viewport width
+            }}
           >
             <Modal.Body style={{ padding: '1.5rem' }}>
               {/* Close Button */}
@@ -354,7 +361,13 @@ function ProjectImg() {
         <Modal
           show={showEditModal}
           onHide={handleCloseEditModal}
-          centered
+          fullscreen
+          style={{
+            margin: 0,
+            padding: 0,
+
+            width: '100vw', // Use viewport width
+          }}
           className='editmodal'
         >
           <div className='d-flex align-items-center mb-4'>
