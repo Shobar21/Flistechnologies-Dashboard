@@ -375,7 +375,7 @@ function ProjectImg() {
                 }}
               >
                 <img
-                  src={editData.image}
+                  src={imageSrc || editData.img}
                   alt='Edit'
                   style={{
                     width: '100%',
@@ -494,7 +494,7 @@ function ProjectImg() {
             {/* Image and Change Button */}
             <div className='mb-3 mt-5 position-relative'>
               <img
-                src={selectedImage.img}
+                src={imageSrc || selectedImage.img}
                 alt='Selected'
                 className='img-fluid rounded mb-3'
                 style={{

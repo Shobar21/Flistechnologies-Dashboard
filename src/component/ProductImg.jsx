@@ -99,15 +99,16 @@ function ProductImg() {
     console.log('Closing Mobile Modal') // Debugging log
     setShowMobileModal(false) // Update the state to hide the modal
   }
-  const [imageSrc, setImageSrc] = useState(selectedImage) // Initial state is null
+  const [imageSrc, setImageSrc] = useState(selectedImage || '') // Use selectedImage as the initial state
+
   const handleImageChange = (event) => {
-    const file = event.target.files[0]
+    const file = event.target.files[0] // Get the selected file
     if (file) {
       const reader = new FileReader()
       reader.onloadend = () => {
-        setImageSrc(reader.result)
+        setImageSrc(reader.result) // Update the image source with the selected file
       }
-      reader.readAsDataURL(file)
+      reader.readAsDataURL(file) // Read the file and trigger onloadend
     }
   }
   const [rating, setRating] = useState(0)
@@ -301,7 +302,7 @@ function ProductImg() {
                 }}
               >
                 <img
-                  src={editData.image}
+                  src={imageSrc || editData.img}
                   alt='Edit'
                   style={{
                     width: '100%',
@@ -451,7 +452,7 @@ function ProductImg() {
                   >
                     {/* Profile Image */}
                     <img
-                      src={editData.image}
+                      src={imageSrc || editData.img}
                       alt='Edit'
                       style={{
                         width: '80px',
@@ -781,7 +782,7 @@ function ProductImg() {
             {/* Image and Change Button */}
             <div className='mb-3 mt-5 position-relative'>
               <img
-                src={selectedImage.img}
+                src={imageSrc || selectedImage.img} // Show selected image or placeholder if none
                 alt='Selected'
                 className='img-fluid rounded mb-3'
                 style={{
@@ -799,6 +800,7 @@ function ProductImg() {
                 id='imageUpload'
                 style={{ display: 'none' }}
                 onChange={handleImageChange}
+                accept='image/*' // Accept only image files
               />
 
               {/* Button to trigger file input */}
@@ -903,7 +905,7 @@ function ProductImg() {
                 }}
               >
                 <img
-                  src={selectedImage.img}
+                  src={imageSrc || selectedImage.img}
                   alt='Edit'
                   style={{
                     width: '100px',
