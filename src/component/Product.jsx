@@ -37,6 +37,10 @@ function Product() {
       reader.readAsDataURL(file)
     }
   }
+  const [rating, setRating] = useState(0)
+  const handleRating = (value) => {
+    setRating(value)
+  }
 
   return (
     <Container fluid className='p-4 product-container'>
@@ -343,15 +347,26 @@ function Product() {
             </div>
 
             {/* Star Rating */}
-            <div className='text-center mb-4' style={{ width: '150px' }}>
-              {[...Array(5)].map((_, index) => (
-                <FontAwesomeIcon
-                  key={index}
-                  icon={faStar}
-                  style={{ color: '#DDD', cursor: 'pointer' }}
-                />
-              ))}
-            </div>
+            <Form.Group className='mb-3' controlId='editStars'>
+              <div style={{ marginLeft: '0rem' }}>
+                {[...Array(5)].map((_, i) => {
+                  const starValue = i + 1
+                  return (
+                    <span
+                      key={i}
+                      style={{
+                        color: starValue <= rating ? '#FFD700' : '#D3D3D3',
+                        fontSize: '20px',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleRating(starValue)}
+                    >
+                      ★
+                    </span>
+                  )
+                })}
+              </div>
+            </Form.Group>
             <Button className='mt-3' style={{ width: '100px', height: '40px' }}>
               Done
             </Button>

@@ -68,6 +68,7 @@ function ProductImg() {
   }
   const [showModal, setShowModal] = useState(false)
   const [selectedImage, setSelectedImage] = useState(null)
+
   const [isEditable, setIsEditable] = useState({
     title: false,
     url: false,
@@ -108,6 +109,10 @@ function ProductImg() {
       }
       reader.readAsDataURL(file)
     }
+  }
+  const [rating, setRating] = useState(0)
+  const handleRating = (value) => {
+    setRating(value)
   }
   console.log(editData.image)
   return (
@@ -288,10 +293,10 @@ function ProductImg() {
                 className='mb-3 position-relative'
                 style={{
                   width: '80%',
-                  maxWidth: '300px', // Limit max width for small screens
+                  maxWidth: '300px',
                   height: '250px',
                   border: '1px solid #ddd',
-                  margin: 'auto', // Center align for mobile
+                  margin: 'auto',
                   position: 'relative',
                 }}
               >
@@ -545,18 +550,23 @@ function ProductImg() {
 
                 {/* Star Ratings */}
                 <Form.Group className='mb-3' controlId='editStars'>
-                  <div style={{ marginLeft: '6rem' }}>
-                    {[...Array(5)].map((_, i) => (
-                      <span
-                        key={i}
-                        style={{
-                          color: '#FFD700',
-                          fontSize: '20px',
-                        }}
-                      >
-                        ★
-                      </span>
-                    ))}
+                  <div style={{ marginLeft: '7rem' }}>
+                    {[...Array(5)].map((_, i) => {
+                      const starValue = i + 1
+                      return (
+                        <span
+                          key={i}
+                          style={{
+                            color: starValue <= rating ? '#FFD700' : '#D3D3D3',
+                            fontSize: '20px',
+                            cursor: 'pointer',
+                          }}
+                          onClick={() => handleRating(starValue)}
+                        >
+                          ★
+                        </span>
+                      )
+                    })}
                   </div>
                 </Form.Group>
 
@@ -621,7 +631,7 @@ function ProductImg() {
                     id='fileUpload'
                     accept='image/*' // Restrict to image files
                     style={{ display: 'none' }}
-                    onChange={handleImageChange} // Function to handle the uploaded image
+                    onChange={handleImageChange}
                   />
                   {/* Upload Icon */}
                   <FontAwesomeIcon
@@ -684,9 +694,9 @@ function ProductImg() {
                   <input
                     type='file'
                     id='circleFileUpload'
-                    accept='image/*' // Restrict file selection to images
+                    accept='image/*'
                     style={{ display: 'none' }}
-                    onChange={handleImageChange} // Function to handle the uploaded file
+                    onChange={handleImageChange}
                   />
                   {/* Upload Icon */}
                   <FontAwesomeIcon
@@ -720,15 +730,26 @@ function ProductImg() {
               </div>
 
               {/* Star Rating */}
-              <div className='text-center mb-4'>
-                {[...Array(5)].map((_, index) => (
-                  <FontAwesomeIcon
-                    key={index}
-                    icon={faStar}
-                    style={{ color: '#DDD', cursor: 'pointer' }}
-                  />
-                ))}
-              </div>
+              <Form.Group className='mb-3' controlId='editStars'>
+                <div style={{ marginLeft: '8rem' }}>
+                  {[...Array(5)].map((_, i) => {
+                    const starValue = i + 1
+                    return (
+                      <span
+                        key={i}
+                        style={{
+                          color: starValue <= rating ? '#FFD700' : '#D3D3D3',
+                          fontSize: '20px',
+                          cursor: 'pointer',
+                        }}
+                        onClick={() => handleRating(starValue)}
+                      >
+                        ★
+                      </span>
+                    )
+                  })}
+                </div>
+              </Form.Group>
 
               {/* Done Button */}
               <div className='text-center'>
@@ -974,17 +995,22 @@ function ProductImg() {
             {/* Star Ratings */}
             <Form.Group className='mb-3' controlId='editStars'>
               <div style={{ marginLeft: '10rem' }}>
-                {[...Array(5)].map((_, i) => (
-                  <span
-                    key={i}
-                    style={{
-                      color: '#FFD700',
-                      fontSize: '20px',
-                    }}
-                  >
-                    ★
-                  </span>
-                ))}
+                {[...Array(5)].map((_, i) => {
+                  const starValue = i + 1
+                  return (
+                    <span
+                      key={i}
+                      style={{
+                        color: starValue <= rating ? '#FFD700' : '#D3D3D3',
+                        fontSize: '20px',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleRating(starValue)}
+                    >
+                      ★
+                    </span>
+                  )
+                })}
               </div>
             </Form.Group>
 
