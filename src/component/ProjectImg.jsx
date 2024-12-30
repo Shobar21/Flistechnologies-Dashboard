@@ -388,7 +388,7 @@ function ProjectImg() {
                 }}
               >
                 <img
-                  src={imageSrc || editData.img}
+                  src={imageSrc || editData.image}
                   alt='Edit'
                   style={{
                     width: '100%',

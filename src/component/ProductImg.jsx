@@ -302,7 +302,7 @@ function ProductImg() {
                 }}
               >
                 <img
-                  src={imageSrc || editData.img}
+                  src={imageSrc || editData.image}
                   alt='Edit'
                   style={{
                     width: '100%',
@@ -452,7 +452,7 @@ function ProductImg() {
                   >
                     {/* Profile Image */}
                     <img
-                      src={imageSrc || editData.img}
+                      src={imageSrc || editData.image}
                       alt='Edit'
                       style={{
                         width: '80px',
