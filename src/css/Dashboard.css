@@ -339,7 +339,8 @@
   }
   .bar-chart {
     margin-left: -1rem;
-    height: 130px !important;
+    /* background-color: red; */
+    height: 120px !important;
     width: 160px !important;
     margin-top: -1rem;
   }
