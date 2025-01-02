@@ -211,8 +211,8 @@
   }
   .dash-h5 {
     margin-top: -1.8rem;
-    margin-left: 0.66rem;
-    font-size: 5.8px;
+    margin-left: 0.4rem;
+    font-size: 5px;
     width: 56px;
     font-weight: 700;
   }
@@ -220,13 +220,16 @@
   .dash-h3 {
     margin-left: 0.8rem;
     margin-top: -0.5rem;
-    font-size: 8px;
+    font-size: 7.5px;
   }
   .circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: -0.5rem;
     margin-left: -0.7rem;
-    width: 19px;
-    height: 19px;
+    width: 17px;
+    height: 17px;
   }
   .small-icons {
     width: 10px;
@@ -237,12 +240,12 @@
     height: 10px;
   }
   .row-dash {
-    margin-left: -3rem;
+    margin-left: -2rem;
     margin-top: 0.5rem !important;
-    gap: 1.5rem;
+    gap: 1.3rem;
     max-width: 130%;
     height: 50px;
-    width: 430px;
+    width: 347px;
   }
   .dollar {
     margin-left: -0.5rem;
@@ -267,7 +270,8 @@
     font-size: 5px;
   }
   .cards {
-    width: 95px !important;
+    width: 74px !important;
+    margin-left: -0.2rem;
     height: 35px; /* Allow height to adjust if needed */
   }
   .cal-month {
@@ -282,8 +286,9 @@
     height: 11px;
   }
   .chart-card {
+    /* background-color: aqua; */
     margin-top: -0.8rem;
-    width: 400px;
+    width: 330px;
     height: 245px;
   }
   .h2-dollar {
@@ -298,12 +303,13 @@
     margin-left: -0.5rem;
   }
   .row-chart {
-    margin-left: -2.5rem;
+    margin-left: -1.8rem;
   }
   .graph-container {
-    margin-left: 13rem;
+    margin-left: 10rem;
     margin-top: -8rem;
-    width: 210px;
+    width: 200px;
+    height: 200px;
   }
   .traffic-h5 {
     font-size: 6px !important;
@@ -312,8 +318,8 @@
     margin-top: 15rem;
     margin-left: 0.2rem !important;
     /* background-color: red; */
-    width: 190px !important;
-    height: 215px;
+    width: 170px !important;
+    height: 190px;
   }
   .text-end span {
     font-size: 6px;
@@ -334,7 +340,7 @@
   .bar-chart {
     margin-left: -1rem;
     height: 130px !important;
-    width: 180px !important;
+    width: 160px !important;
     margin-top: -1rem;
   }
   /* table */
@@ -343,15 +349,14 @@
     flex-direction: column !important;
     /* background-color: aqua !important; */
     height: min-content;
-
     margin-left: -2.2rem;
   }
   .tb-col {
-    height: 215px;
-    margin-left: 13.3rem !important;
-    margin-top: -15rem;
+    height: 190px;
+    margin-left: 12.7rem !important;
+    margin-top: -13.5rem;
     /* background-color: yellow !important; */
-    width: 190px;
+    width: 150px;
   }
   .quick-act {
     font-size: 9px !important ;
@@ -361,36 +366,41 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 0.5rem;
-    width: 150px;
-    height: 40px;
+    margin-left: -0rem;
+    width: 130px;
+    height: 30px;
   }
   .card-icon {
     width: 8px;
     height: 9px;
   }
   .add {
+    margin-left: -0.4rem;
     font-size: 9px;
+    width: 56px;
   }
   .btn {
-    width: 25px;
-    height: 15px;
+    width: 23px;
+    height: 17px;
+    margin-left: 5.5rem;
+    margin-top: -1.2rem;
     padding: 0px;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .table-card {
-    margin-top: -27rem;
+    margin-top: -25.5rem;
 
-    margin-left: -1rem;
-    width: 400px;
+    margin-left: -0.2rem;
+    width: 330px;
     height: 200px;
   }
   .contact-table {
     font-size: 12px !important;
     margin-top: -0.3rem;
   }
+
   .rect {
     width: 19px;
     height: 19px;
@@ -405,7 +415,7 @@
     border-radius: 1px;
     overflow: hidden !important;
     margin-top: 0.5rem;
-    width: 350px !important;
+    width: 300px !important;
     border-collapse: collapse !important;
   }
   .custom-table thead th {

@@ -78,6 +78,7 @@
 
   /* Mobile Navbar */
   .mobile-navbar {
+    width: 100%;
     display: flex !important;
     justify-content: space-between !important;
     background-color: #f9f9ff !important;

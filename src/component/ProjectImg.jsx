@@ -172,13 +172,15 @@ function ProjectImg() {
       {/* Mobile Product Layout (Only img1 and img2, 12 images total, 6 rows) */}
       <Row className='d-block d-md-none my-4 justify-content-center projectimg'>
         <Container>
-          <Button
-            variant='primary'
-            className='btn-project'
-            onClick={handleOpenMobileModal}
-          >
-            +
-          </Button>
+          <div>
+            <Button
+              variant='primary'
+              className='btn-project'
+              onClick={handleOpenMobileModal}
+            >
+              +
+            </Button>
+          </div>
           {/* Loop through 6 rows with only img1 and img2 */}
           {Array.from({ length: 6 }).map((_, rowIndex) => (
             <Row key={rowIndex} className='mb-4'>
@@ -203,22 +205,25 @@ function ProjectImg() {
                         width: '134.71px',
                         height: '142px',
                         objectFit: 'cover',
+                        marginLeft: '-1rem',
                       }}
                     />
 
                     <div
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '155px', // Matches the image width
-                        margin: '0 auto', // Centers the buttons within the container
+                        width: '36px',
+                        marginTop: '2.5rem !important',
+                        marginLeft: '-5.4rem',
                       }}
                     >
                       <button
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '43%', // Ensures buttons are slightly spaced
-                          height: '34px',
+                          width: '150%',
+                          marginTop: '0.2rem',
+                          height: '30px',
                         }}
                       >
                         <FontAwesomeIcon
@@ -241,8 +246,10 @@ function ProjectImg() {
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '42%',
-                          height: '34px',
+                          marginLeft: '2rem',
+                          marginTop: '0.2rem',
+                          width: '170%',
+                          height: '30px',
                         }}
                       >
                         <FontAwesomeIcon icon={faTrash} className='me-1' />

@@ -56,13 +56,14 @@
 
 @media (max-width: 768px) {
   .projectimg {
-    width: 100%;
+    width: 110% !important;
+    /* background-color: red; */
   }
   .btn-project {
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    margin-left: 19rem;
+    margin-left: 18rem;
     padding: 0;
   }
   .Projects-heading {

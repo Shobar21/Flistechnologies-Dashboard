@@ -71,15 +71,15 @@
   }
   .product-h5 {
     margin-top: -1.8rem;
-    margin-left: 0.66rem;
-    font-size: 5.8px;
+    margin-left: 0.4rem;
+    font-size: 5px;
     width: 56px !important;
     font-weight: 700;
   }
   .product-h3 {
     margin-left: 0.8rem;
     margin-top: -0.5rem;
-    font-size: 8px;
+    font-size: 7.5px;
     width: 70px;
   }
   .small-icons {
@@ -87,12 +87,12 @@
     height: 9px;
   }
   .row-product {
-    margin-left: -2rem;
+    margin-left: -1.8rem;
     margin-top: 0.5rem !important;
     gap: 0.5rem !important;
     max-width: 130%;
     height: 50px;
-    width: 410px !important;
+    width: 365px !important;
   }
   .col-product {
     flex: 1 1 calc(40% - 0.5rem); /* Keep 4 items per row */
@@ -107,7 +107,7 @@
     width: 80px;
   }
   .solds {
-    margin-left: -0.8rem;
+    margin-left: -2.4rem;
     margin-top: -0.5rem;
     font-size: 5px !important;
     width: 90px !important;
@@ -119,11 +119,11 @@
   }
   .cal {
     margin-top: -0.5rem;
-    width: 40px !important;
+    width: 38px !important;
     height: 8px;
     background-color: #f4f7fe;
     font-size: 5px !important;
-    margin-left: -2.8rem !important;
+    margin-left: -3.6rem !important;
   }
   #project-add {
     display: none;

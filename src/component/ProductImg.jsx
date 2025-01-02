@@ -220,16 +220,18 @@ function ProductImg() {
                     <div
                       className='buttons-ed mt-3 d-flex justify-content-between'
                       style={{
-                        width: '155px',
-                        margin: '0 auto',
+                        width: '36px',
+                        marginTop: '2.5rem !important',
+                        marginLeft: '-4.7rem',
                       }}
                     >
                       <button
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '43%',
-                          height: '34px',
+                          width: '150%',
+                          marginTop: '0.2rem',
+                          height: '30px',
                         }}
                         onClick={() =>
                           handleOpenEditModal({
@@ -249,8 +251,10 @@ function ProductImg() {
                         className='btn '
                         style={{
                           color: '#fff',
-                          width: '42%',
-                          height: '34px',
+                          marginLeft: '2rem',
+                          marginTop: '0.2rem',
+                          width: '170%',
+                          height: '30px',
                         }}
                       >
                         <FontAwesomeIcon icon={faTrash} className='me-1' />

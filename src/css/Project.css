@@ -60,7 +60,7 @@
     width: 100% !important;
   }
   .row-project {
-    margin-left: -2rem;
+    margin-left: -1.8rem;
     margin-top: 0.5rem !important;
     gap: 2rem;
     max-width: 130%;
@@ -72,16 +72,16 @@
     max-width: calc(20% - 0.5rem) !important;
   }
   .cardes {
-    width: 100px !important;
+    width: 90px !important;
     height: 35px;
   }
   .cals {
-    margin-top: -3rem;
+    margin-top: -2.8rem;
     width: 40px !important;
-    height: 12px;
+    height: 10px;
     background-color: #f4f7fe;
     font-size: 5px !important;
-    margin-left: 2.5rem !important;
+    margin-left: 2rem !important;
   }
   .proj-add {
     font-size: 8px !important;
